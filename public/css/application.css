@@ -51,6 +51,30 @@ a.button:hover {
   transform:            translateY(3px);
   box-shadow: 0 3px 0 0 #1f7725, 0 3px 5px 0 rgba(0, 0, 0, 0.5);
 }
+a.button#facebook-login {
+  position: relative;
+  height: 17px;
+  padding-left: 50px;
+  padding-right: 12px;
+  background-color: #275994;
+  box-shadow: 0 5px 0 0 #00377f, 0 5px 5px 0 rgba(0, 0, 0, 0.5);
+}
+a.button#facebook-login:hover {
+  box-shadow: 0 3px 0 0 #00377f, 0 3px 5px 0 rgba(0, 0, 0, 0.5);
+}
+a.button#facebook-login:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display:block;
+  width: 40px;
+  padding:4px 0;
+  font-size:1.8em;
+  font-weight: bold;
+  background-color: #134988;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
 ul.nav {
   position: absolute;
   top: 25px;
@@ -111,8 +135,11 @@ div.header div.brand p.tagline {
   line-height: 1.4;
   color: rgba(255, 255, 255, 0.65);
 }
+div.header ul li {
+  margin-bottom:2em;
+}
 div.header a.button {
-  width: 150px;
+  width: 180px;
 }
 div.content {
   padding: 4% 2%;
