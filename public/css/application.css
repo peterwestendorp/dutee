@@ -116,9 +116,9 @@ div.header {
   padding:12% 5% 10% 5%;
   text-align: center;
   background: #0044a1;
-  background: -moz-radial-gradient(center, ellipse cover, #0070d5 0%, #0044a1 100%);
-  background: -webkit-radial-gradient(center, ellipse cover, #0070d5 0%, #0044a1 100%);
-  background: radial-gradient(center, ellipse cover, #0070d5 0%, #0044a1 100%);
+  background: -moz-radial-gradient(center, ellipse cover, #0088ff 0%, #0058d4 100%);
+  background: -webkit-radial-gradient(center, ellipse cover, #0088ff 0%, #0058d4 100%);
+  background: radial-gradient(center, ellipse cover, #0088ff 0%, #0058d4 100%);
   color: #FFF;
 }
 div.header div.brand {
@@ -139,7 +139,7 @@ div.header ul li {
   margin-bottom:2em;
 }
 div.header a.button {
-  width: 180px;
+  width: 190px;
 }
 div.content {
   padding: 4% 2%;
