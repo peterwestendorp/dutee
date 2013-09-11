@@ -22,12 +22,12 @@ var facebookButton = document.getElementById("facebook-login");
 facebookButton.addEventListener('click', function(){
   FB.login(function(response){
       if(response.authResponse){
-          console.log('Welcome!  Fetching your information.... ');
+          console.log('Welcome!');
           // access_token = response.authResponse.accessToken;
           // user_id = response.authResponse.userID;
 
           FB.api('/me', function(response) {
-            console.log(response);
+            // console.log(response);
             // user_email = response.email;
           });
 

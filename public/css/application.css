@@ -125,7 +125,7 @@ div.header div.brand {
   margin-bottom:50px;
 }
 div.header div.brand h1 {
-  color:rgba(255, 255, 255, 0.9);
+  color:rgba(255, 255, 255, 1);
 }
 div.header div.brand p.tagline {
   margin:1em 0;
@@ -133,7 +133,7 @@ div.header div.brand p.tagline {
   font-style: italic;
   font-weight:300;
   line-height: 1.4;
-  color: rgba(255, 255, 255, 0.65);
+  color: rgba(255, 255, 255, 0.75);
 }
 div.header ul li {
   margin-bottom:2em;
