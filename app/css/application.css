@@ -35,7 +35,7 @@ a {
 a.button {
   display:inline-block;
   padding:10px 20px;
-  text-transform: uppercase;
+  line-height: 1.2;
   text-decoration: none;
   background-color:#2dad36;
   box-shadow: 0 5px 0 0 #1f7725, 0 5px 5px 0 rgba(0, 0, 0, 0.5);
@@ -68,9 +68,9 @@ a.button#facebook-login:before {
   left: 0;
   display:block;
   width: 40px;
-  padding:4px 0;
-  font-size:1.8em;
+  font-size:1.4em;
   font-weight: bold;
+  line-height: 1.7;
   background-color: #134988;
   border-top-left-radius: 4px;
   border-bottom-left-radius: 4px;
