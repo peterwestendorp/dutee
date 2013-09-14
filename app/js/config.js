@@ -1,7 +1,7 @@
 'use strict';
 
 // Declare app level module which depends on filters, and services
-angular.module('myApp.config', [])
+angular.module('duteeApp.config', [])
 
    // version of this seed app
    .constant('version', '0.1')

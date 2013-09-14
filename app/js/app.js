@@ -1,8 +1,8 @@
 'use strict';
 
 // Declare app level module which depends on filters, and services
-angular.module('myApp',
-      ['myApp.config', 'myApp.filters', 'myApp.services', 'myApp.directives', 'myApp.controllers', 'firebase']
+angular.module('duteeApp',
+      ['duteeApp.config', 'duteeApp.filters', 'duteeApp.services', 'duteeApp.directives', 'duteeApp.controllers', 'firebase']
    )
 
    // configure views; note the authRequired parameter for authenticated pages
@@ -15,17 +15,6 @@ angular.module('myApp',
       $routeProvider.when('/view2', {
          templateUrl: 'partials/view2.html',
          controller: 'MyCtrl2'
-      });
-
-      $routeProvider.when('/account', {
-         authRequired: true,
-         templateUrl: 'partials/account.html',
-         controller: 'AccountCtrl'
-      });
-
-      $routeProvider.when('/login', {
-         templateUrl: 'partials/login.html',
-         controller: 'LoginCtrl'
       });
 
       $routeProvider.otherwise({redirectTo: '/view1'});
@@ -43,3 +32,8 @@ angular.module('myApp',
       angularFireAuth.initialize(FBURL, {scope: $rootScope, name: "auth", path: '/login'});
       $rootScope.FBURL = FBURL;
    }]);
+
+var appDirectives = angular.module('duteeApp.directives', []),
+    appControllers = angular.module('duteeApp.controllers', []),
+    appServices = angular.module('duteeApp.services', []),
+    appFilters = angular.module('duteeApp.filters', []);
