@@ -10,14 +10,14 @@
     <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="css/application.css">
   </head>
-  <body>
+  <body ng-controller="FacebookLoginController">
     <div class="page">
       <ul class="nav">
         <li>
           <a href="#">About</a>
         </li>
         <li>
-          <a href="#">Login</a>
+          <a href="#" ng-click="logout()" ng-show="isLoggedIn()">Logout</a>
         </li>
       </ul>
 
@@ -25,16 +25,10 @@
         <div class="brand">
           <h1>Dut.ee</h1>
           <!-- <p class="tagline">Helping you organise duty rosters.</p> -->
-          <p class="tagline">Helping you share volunteer duties evenly.</p>
+          <p class="tagline">Helping you share volunteer duties.</p>
         </div>
-        <ul>
-          <li>
-            <a href="#" class="button" id="facebook-login" data-icon="f" ng-controller="FacebookLogin">Sign in with Facebook</a>
-          </li>
-          <li>
-            <a href="#" class="button" id="create-roster">Create roster</a>
-          </li>
-        </ul>
+        <a href="#" class="button facebook-login" data-icon="f" ng-hide="isLoggedIn()" ng-click="login()">Sign in with Facebook</a>
+        <a href="#" class="button" ng-show="isLoggedIn()">Get started</a>
       </div>
 
       <div class="content">

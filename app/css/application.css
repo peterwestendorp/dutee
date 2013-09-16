@@ -51,7 +51,7 @@ a.button:hover {
   transform:            translateY(3px);
   box-shadow: 0 3px 0 0 #1f7725, 0 3px 5px 0 rgba(0, 0, 0, 0.5);
 }
-a.button#facebook-login {
+a.button.facebook-login {
   position: relative;
   height: 17px;
   padding-left: 50px;
@@ -59,10 +59,10 @@ a.button#facebook-login {
   background-color: #275994;
   box-shadow: 0 5px 0 0 #00377f, 0 5px 5px 0 rgba(0, 0, 0, 0.5);
 }
-a.button#facebook-login:hover {
+a.button.facebook-login:hover {
   box-shadow: 0 3px 0 0 #00377f, 0 3px 5px 0 rgba(0, 0, 0, 0.5);
 }
-a.button#facebook-login:before {
+a.button.facebook-login:before {
   position: absolute;
   top: 0;
   left: 0;
