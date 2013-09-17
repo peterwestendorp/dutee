@@ -1,14 +1,15 @@
 'use strict';
 
-appServices.factory('facebookAuthService', ['FBURL', 'Firebase', '$timeout', function(FBURL, Firebase, $timeout) {
+appServices.factory('facebookAuthService', ['FBURL', 'Firebase', '$timeout', function (FBURL, Firebase, $timeout) {
   var _appRef = new Firebase(FBURL),
       _loggedIn = false,
+      _loginCallback,
       _auth,
       _login,
       _logout,
       _isLoggedIn;
 
-  _auth = new FirebaseSimpleLogin(_appRef, function(error, user){
+  _loginCallback = function(error, user){
     if(error){
       console.log(error);
     }
@@ -30,7 +31,9 @@ appServices.factory('facebookAuthService', ['FBURL', 'Firebase', '$timeout', fun
       _loggedIn = false;
       // user is logged out
     }
-  });
+  };
+
+  _auth = new FirebaseSimpleLogin(_appRef, _loginCallback);
 
   _login = function(){
     _auth.login('facebook', {
