@@ -7,17 +7,16 @@ angular.module('duteeApp',
 
    // configure views; note the authRequired parameter for authenticated pages
    .config(['$routeProvider', function($routeProvider) {
-      $routeProvider.when('/view1', {
-         templateUrl: 'partials/view1.html',
-         controller: 'MyCtrl1'
+      $routeProvider.when('/', {
+         templateUrl: 'partials/home.html'
       });
 
-      $routeProvider.when('/view2', {
-         templateUrl: 'partials/view2.html',
-         controller: 'MyCtrl2'
+      $routeProvider.when('/roster/new', {
+         templateUrl: 'partials/roster/new.html',
+         controller: 'rosterController'
       });
 
-      $routeProvider.otherwise({redirectTo: '/view1'});
+      $routeProvider.otherwise({redirectTo: '/'});
    }])
 
    // double-check that the app has been configured
