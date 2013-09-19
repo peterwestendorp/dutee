@@ -1,4 +1,8 @@
-<h2>Home</h2>
+<div class="start-buttons">
+  <a href="#" class="button facebook-login" data-icon="f" ng-hide="isLoggedIn()" ng-click="login()">Sign in with Facebook</a>
+  <a href="/#/roster/new" class="button" ng-show="isLoggedIn()">Get started</a>
+</div>
+
 
 <h4>{{syncedValue}}</h4>
 <input ng-model="syncedValue" type="text" />
