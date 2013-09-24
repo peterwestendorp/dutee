@@ -1,6 +1,6 @@
 'use strict';
 
-appControllers.controller('MyCtrl2', ['$scope', 'FBURL', 'Firebase', 'angularFireCollection', function($scope, FBURL, Firebase, angularFireCollection) {
+appControllers.controller('rosterController', ['$scope', 'FBURL', 'Firebase', 'angularFireCollection', function($scope, FBURL, Firebase, angularFireCollection) {
   $scope.newMessage = null;
 
   // constrain number of messages by passing a ref to angularFire

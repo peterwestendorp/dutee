@@ -1,9 +1,9 @@
 'use strict';
 
-appControllers.controller('mainController', ['$scope', 'facebookAuthService', function($scope, facebookAuthService){
-    console.log(facebookAuthService);
+appControllers.controller('mainController', ['$scope', '$rootScope', 'facebookAuthService', function($scope, $rootScope, facebookAuthService){
 
     $scope.login = facebookAuthService.login;
     $scope.logout = facebookAuthService.logout;
-    $scope.isLoggedIn = facebookAuthService.isLoggedIn;
+    $rootScope.isLoggedIn = facebookAuthService.isLoggedIn;
+
 }]);

@@ -27,9 +27,17 @@ angular.module('duteeApp',
    }])
 
    // establish authentication
-   .run(['angularFireAuth', 'FBURL', '$rootScope', function(angularFireAuth, FBURL, $rootScope) {
+   .run(['angularFireAuth', 'FBURL', '$rootScope', '$location', function(angularFireAuth, FBURL, $rootScope, $location) {
       angularFireAuth.initialize(FBURL, {scope: $rootScope, name: "auth", path: '/login'});
       $rootScope.FBURL = FBURL;
+
+      // redirect to homepage if not logged in
+      $rootScope.$on( "$routeChangeStart", function(event, next, current) {
+        if(!$rootScope.isLoggedIn()){
+          $location.path("/");
+        }
+      });
+
    }]);
 
    // .run(['$rootScope', function($rootScope){
