@@ -33,7 +33,7 @@ angular.module('duteeApp',
 
       // redirect to homepage if not logged in
       $rootScope.$on( "$routeChangeStart", function(event, next, current) {
-        if(!$rootScope.isLoggedIn()){
+        if(!$rootScope.isLoggedIn){
           $location.path("/");
         }
       });

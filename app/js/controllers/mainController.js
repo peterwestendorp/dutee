@@ -4,8 +4,7 @@ appControllers.controller('mainController', ['$scope', '$rootScope', 'userServic
 
     $scope.login = userService.login;
     $scope.logout = userService.logout;
-    $rootScope.isLoggedIn = userService.isLoggedIn;
-    $scope.addKudos = userService.addKudos;
+    // $scope.addKudos = userService.addKudos;
     // $scope.getKudos = userService.getKudos;
 
 }]);

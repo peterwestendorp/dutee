@@ -1,15 +1,11 @@
-appServices.factory('userService', ['FBURL', 'Firebase', '$timeout', '$q', '$rootScope',function (FBURL, Firebase, $timeout, $q, $rootScope){
+appServices.factory('userService', ['FBURL', 'Firebase', 'angularFireAuth', '$timeout', '$q', '$rootScope',function (FBURL, Firebase, angularFireAuth, $timeout, $q, $rootScope){
   var appRef = new Firebase(FBURL),
       login,
       logout,
-      isLoggedIn,
       addUser,
       addKudos,
       getKudos,
-      _user,
-      _loginCallback,
-      _auth,
-      _loggedIn = false
+      _loginCallback;
 
   _loginCallback = function(error, user){
     if(error){
@@ -23,37 +19,27 @@ appServices.factory('userService', ['FBURL', 'Firebase', '$timeout', '$q', '$roo
         last_name: user.last_name || null,
         timezone: user.timezone || null
       }).then(function(){
-        // let angular digest new logged in state
-        $timeout(function(){
-          console.log('User logged in successfully');
-          _loggedIn = true;
-        });
+        console.log("User added/updated successfully...");
       });
-    }
-    else {
-      // user is logged out
-      _loggedIn = false;
     }
   };
 
-  _auth = new FirebaseSimpleLogin(appRef, _loginCallback);
+  angularFireAuth.initialize(FBURL, {
+    scope: $rootScope,
+    name: "isLoggedIn",
+    callback: _loginCallback
+  });
 
   login = function(){
-    _auth.login('facebook', {
+    angularFireAuth.login('facebook', {
       rememberMe: true,
       scope: 'email'
     });
   };
 
   logout = function(){
-    _auth.logout();
+    angularFireAuth.logout();
   };
-
-  isLoggedIn = function(){
-    return _loggedIn;
-  };
-
-  $rootScope.isLoggedIn = isLoggedIn;
 
   addUser = function(userObj){
     // Example userObj:
@@ -67,12 +53,11 @@ appServices.factory('userService', ['FBURL', 'Firebase', '$timeout', '$q', '$roo
     // }
 
     var usersRef = appRef.child('users'),
-        deferred = $q.defer();
-
-    _user = usersRef.child(userObj.email.replace('.', '*'));
+        deferred = $q.defer()
+        _newUser = usersRef.child(userObj.email.replace('.', '*'));
 
     // user transaction
-    _user.transaction(function(currentData){
+    _newUser.transaction(function(currentData){
       if(currentData === null){ return userObj; }
       else { return; }
       deferred.resolve('User created');
@@ -88,28 +73,27 @@ appServices.factory('userService', ['FBURL', 'Firebase', '$timeout', '$q', '$roo
     return deferred.promise;
   };
 
-  addKudos = function(added){
-    if(!isLoggedIn()){return;}
+  // addKudos = function(added){
+  //   if(!$rootScope.user){return;}
 
-    _user.child('kudos').transaction(function(kudos){
-      return kudos+added;
-    }, function(error){
-      if(error){
-        console.error("Adding kudos failed");
-      }
-    });
-  };
+  //   _newUser.child('kudos').transaction(function(kudos){
+  //     return kudos+added;
+  //   }, function(error){
+  //     if(error){
+  //       console.error("Adding kudos failed");
+  //     }
+  //   });
+  // };
 
   // getKudos = function(){
-  //   console.log(_user.kudos);
+  //   console.log(_newUser.kudos);
   // };
 
   return {
     login: login,
     logout: logout,
-    isLoggedIn: isLoggedIn,
-    addUser: addUser,
-    addKudos: addKudos
+    addUser: addUser
+    // addKudos: addKudos
     // getKudos: getKudos
   };
 }]);
