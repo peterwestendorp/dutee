@@ -1,51 +1,31 @@
-'use strict';
-
-appServices.factory('userService', ['FBURL', 'Firebase', '$timeout', function (FBURL, Firebase, $timeout) {
+appServices.factory('userService', ['FBURL', 'Firebase', '$timeout', '$q', '$rootScope',function (FBURL, Firebase, $timeout, $q, $rootScope){
   var appRef = new Firebase(FBURL),
-      loginCallback,
       login,
       logout,
       isLoggedIn,
+      addUser,
       addKudos,
       getKudos,
+      _user,
+      _loginCallback,
       _auth,
-      _loggedIn = false,
-      _fbUser;
+      _loggedIn = false
 
-  loginCallback = function(error, user){
+  _loginCallback = function(error, user){
     if(error){
       console.error("loginCallback error:", error);
     }
     else if(user){
-      var usersRef = appRef.child('users');
-
-      _fbUser = usersRef.child(user.id);
-
-      // user transaction
-      _fbUser.transaction(function(currentData){
-        if(currentData === null){
-          return {
-            facebook_uid: user.id,
-            email: user.email,
-            first_name: user.first_name || null,
-            last_name: user.last_name || null,
-            timezone: user.timezone || null
-          };
-        }
-        else {
-          return;
-        }
-      }, function(error, committed, snapshot){
-        if(error){
-          console.error('User transaction failed abnormally!', error);
-        }
-        else if(!committed){
-          console.log('User already exists');
-        }
-
+      addUser({
+        facebook_uid: user.id,
+        email: user.email,
+        first_name: user.first_name || null,
+        last_name: user.last_name || null,
+        timezone: user.timezone || null
+      }).then(function(){
         // let angular digest new logged in state
         $timeout(function(){
-          console.log('user logged in:', snapshot.val());
+          console.log('User logged in successfully');
           _loggedIn = true;
         });
       });
@@ -56,7 +36,7 @@ appServices.factory('userService', ['FBURL', 'Firebase', '$timeout', function (F
     }
   };
 
-  _auth = new FirebaseSimpleLogin(appRef, loginCallback);
+  _auth = new FirebaseSimpleLogin(appRef, _loginCallback);
 
   login = function(){
     _auth.login('facebook', {
@@ -73,10 +53,45 @@ appServices.factory('userService', ['FBURL', 'Firebase', '$timeout', function (F
     return _loggedIn;
   };
 
+  $rootScope.isLoggedIn = isLoggedIn;
+
+  addUser = function(userObj){
+    // Example userObj:
+    //
+    // {
+    //   facebook_uid: 99,
+    //   email: "foo@bar.com",  (required)
+    //   first_name: "foo",
+    //   last_name: "bar",
+    //   timezone: 1
+    // }
+
+    var usersRef = appRef.child('users'),
+        deferred = $q.defer();
+
+    _user = usersRef.child(userObj.email.replace('.', '*'));
+
+    // user transaction
+    _user.transaction(function(currentData){
+      if(currentData === null){ return userObj; }
+      else { return; }
+      deferred.resolve('User created');
+    }, function(error, committed, snapshot){
+      if(error){
+        deferred.reject('User transaction failed abnormally! '+error);
+      }
+      else if(!committed){
+        deferred.resolve('User already exists');
+      }
+    });
+
+    return deferred.promise;
+  };
+
   addKudos = function(added){
     if(!isLoggedIn()){return;}
 
-    _fbUser.child('kudos').transaction(function(kudos){
+    _user.child('kudos').transaction(function(kudos){
       return kudos+added;
     }, function(error){
       if(error){
@@ -86,13 +101,14 @@ appServices.factory('userService', ['FBURL', 'Firebase', '$timeout', function (F
   };
 
   // getKudos = function(){
-  //   console.log(_fbUser.kudos);
+  //   console.log(_user.kudos);
   // };
 
   return {
     login: login,
     logout: logout,
     isLoggedIn: isLoggedIn,
+    addUser: addUser,
     addKudos: addKudos
     // getKudos: getKudos
   };

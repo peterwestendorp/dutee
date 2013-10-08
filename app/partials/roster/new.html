@@ -1,19 +1,17 @@
 <h2>Create new roster</h2>
 
-<form>
-  <input placeholder="Message..." ng-model="newMessage">
-  <button type="submit" ng-click="addMessage()">send</button>
-</form>
-
-<ul id="messages">
-    <li ng-repeat="message in messages | reverse">{{message.text}}</li>
-</ul>
-
-<p>
-  Running the 'interpolate' filter:
-  {{ 'Current version is v%VERSION%.' | interpolate }}
-</p>
-
+<ol>
+  <li>
+    <h3>Enter e-mail addresses volunteers</h3>
+    <form ng-controller="rosterController">
+      <input placeholder="Enter user email" ng-model="newUser">
+      <button type="submit" ng-click="addUsers()">Add user</button>
+    </form>
+  </li>
+  <li>
+    <h3>Select dates</h3>
+  </li>
+</ol>
 
 <button ng-click="addKudos(5)">set kudos</button>
 <!-- <button ng-click="getKudos()">get kudos</button> -->
