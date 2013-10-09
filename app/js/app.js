@@ -2,7 +2,7 @@
 
 // Declare app level module which depends on filters, and services
 angular.module('duteeApp',
-      ['duteeApp.config', 'duteeApp.filters', 'duteeApp.services', 'duteeApp.directives', 'duteeApp.controllers', 'firebase']
+      ['duteeApp.config', 'duteeApp.filters', 'duteeApp.services', 'duteeApp.directives', 'duteeApp.controllers', 'firebase', 'ui.bootstrap']
    )
 
    // configure views; note the authRequired parameter for authenticated pages
