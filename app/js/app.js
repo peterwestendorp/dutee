@@ -12,8 +12,7 @@ angular.module('duteeApp',
       });
 
       $routeProvider.when('/roster/new', {
-         templateUrl: 'partials/roster/new.html',
-         controller: 'rosterController'
+         templateUrl: 'partials/roster/new.html'
       });
 
       $routeProvider.otherwise({redirectTo: '/'});

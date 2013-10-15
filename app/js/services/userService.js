@@ -1,4 +1,4 @@
-appServices.factory('userService', ['FBURL', 'Firebase', 'angularFireAuth', '$timeout', '$q', '$rootScope',function (FBURL, Firebase, angularFireAuth, $timeout, $q, $rootScope){
+appServices.factory('userService', ['FBURL', 'Firebase', 'angularFireAuth', '$timeout', '$q', '$rootScope', '$location',function (FBURL, Firebase, angularFireAuth, $timeout, $q, $rootScope, $location){
   var appRef = new Firebase(FBURL),
       login,
       logout,
@@ -39,6 +39,7 @@ appServices.factory('userService', ['FBURL', 'Firebase', 'angularFireAuth', '$ti
 
   logout = function(){
     angularFireAuth.logout();
+    $location.path("/");
   };
 
   addUser = function(userObj){
@@ -53,7 +54,7 @@ appServices.factory('userService', ['FBURL', 'Firebase', 'angularFireAuth', '$ti
     // }
 
     var usersRef = appRef.child('users'),
-        deferred = $q.defer()
+        deferred = $q.defer(),
         _newUser = usersRef.child(userObj.email.replace('.', '*'));
 
     // user transaction

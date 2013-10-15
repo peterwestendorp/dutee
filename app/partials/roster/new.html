@@ -1,71 +1,73 @@
-<h2>Create new roster</h2>
+<div ng-controller="rosterController">
+  <h2>Create new roster</h2>
 
-<ol>
-  <li>
-    <h3>Enter e-mail addresses volunteers</h3>
-    <form ng-controller="rosterController" class="form-horizontal">
-      <input type="email" placeholder="Enter user email" ng-model="newUser">
-      <button type="submit" ng-click="addUsers()" class="btn">Add user</button>
-    </form>
-  </li>
-  <li>
-    <h3>Select dates</h3>
+  <ol>
+    <li>
+      <h3>Enter e-mail addresses volunteers</h3>
+      <form ng-controller="rosterController" class="form-horizontal">
+        <input type="email" placeholder="Enter user email" ng-model="newUser">
+        <button type="submit" ng-click="addUsers()" class="btn">Add user</button>
+      </form>
+    </li>
+    <li>
+      <h3>Select dates</h3>
 
 
-  <div ng-controller="DatepickerDemoCtrl">
-    <div class="form-horizontal">
-      <input type="text" datepicker-popup="dd-MMMM-yyyy" ng-model="dt" is-open="opened" min="minDate" max="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" />
-      <button class="btn" ng-click="open()"><i class="icon-calendar"></i></button>
+    <div ng-controller="DatepickerDemoCtrl">
+      <div class="form-horizontal">
+        <input type="text" datepicker-popup="dd-MMMM-yyyy" ng-model="dt" is-open="opened" min="minDate" max="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" />
+        <button class="btn" ng-click="open()"><i class="icon-calendar"></i></button>
+      </div>
     </div>
-  </div>
 
-  <script>
-    var DatepickerDemoCtrl = function ($scope, $timeout) {
-      $scope.today = function() {
-        $scope.dt = new Date();
-        console.log("today")
+    <script>
+      var DatepickerDemoCtrl = function ($scope, $timeout) {
+        $scope.today = function() {
+          $scope.dt = new Date();
+          console.log("today")
+        };
+        $scope.today();
+
+        // $scope.showWeeks = true;
+        // $scope.toggleWeeks = function () {
+        //   $scope.showWeeks = ! $scope.showWeeks;
+        // };
+
+        $scope.clear = function () {
+          $scope.dt = null;
+          console.log("clear")
+        };
+
+        // // Disable weekend selection
+        // $scope.disabled = function(date, mode) {
+        //   return ( mode === 'day' && ( date.getDay() === 0 || date.getDay() === 6 ) );
+        // };
+
+        // $scope.toggleMin = function() {
+        //   $scope.minDate = ( $scope.minDate ) ? null : new Date();
+        // };
+        // $scope.toggleMin();
+
+        $scope.open = function() {
+          console.log("open")
+          $timeout(function() {
+            $scope.opened = true;
+            console.log("opened")
+          });
+        };
+
+        // $scope.dateOptions = {
+        //   'year-format': "'yy'",
+        //   'starting-day': 1
+        // };
       };
-      $scope.today();
-
-      // $scope.showWeeks = true;
-      // $scope.toggleWeeks = function () {
-      //   $scope.showWeeks = ! $scope.showWeeks;
-      // };
-
-      $scope.clear = function () {
-        $scope.dt = null;
-        console.log("clear")
-      };
-
-      // // Disable weekend selection
-      // $scope.disabled = function(date, mode) {
-      //   return ( mode === 'day' && ( date.getDay() === 0 || date.getDay() === 6 ) );
-      // };
-
-      // $scope.toggleMin = function() {
-      //   $scope.minDate = ( $scope.minDate ) ? null : new Date();
-      // };
-      // $scope.toggleMin();
-
-      $scope.open = function() {
-        console.log("open")
-        $timeout(function() {
-          $scope.opened = true;
-          console.log("opened")
-        });
-      };
-
-      // $scope.dateOptions = {
-      //   'year-format': "'yy'",
-      //   'starting-day': 1
-      // };
-    };
-  </script>
+    </script>
 
 
 
-  </li>
-</ol>
+    </li>
+  </ol>
 
-<button ng-click="addKudos(5)" class="btn">set kudos</button>
-<!-- <button ng-click="getKudos()">get kudos</button> -->
+  <button ng-click="addKudos(5)" class="btn">set kudos</button>
+  <!-- <button ng-click="getKudos()">get kudos</button> -->
+</div>
