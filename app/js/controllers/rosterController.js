@@ -1,6 +1,6 @@
 'use strict';
 
-appControllers.controller('rosterController', ['$scope', 'FBURL', 'Firebase', 'angularFire', 'userService', '$timeout', function($scope, FBURL, Firebase, angularFire, userService, $timeout){
+appControllers.controller('rosterController', ['$scope', 'FBURL', 'Firebase', 'angularFire', 'userService', 'rosterService', '$timeout', function($scope, FBURL, Firebase, angularFire, userService, rosterService, $timeout){
 
   $scope.addUsers = function(){
     var newUsers = $scope.newUsers.replace(" ", "").split(',');
@@ -12,11 +12,17 @@ appControllers.controller('rosterController', ['$scope', 'FBURL', 'Firebase', 'a
         $scope.newUsers = "";
       });
     }
+
+    return newUsers;
   };
 
   $scope.createRoster = function(){
-    $scope.addUsers();
-    console.log($scope.date);
+    rosterService.create({
+      date: $scope.date,
+      volunteers: $scope.addUsers()
+    }).then(function(){
+      console.log("Roster added/updated successfully...");
+    });
   };
 
 }]);
