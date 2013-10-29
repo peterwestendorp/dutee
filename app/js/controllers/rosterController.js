@@ -17,12 +17,21 @@ appControllers.controller('rosterController', ['$scope', 'FBURL', 'Firebase', 'a
   };
 
   $scope.createRoster = function(){
-    rosterService.create({
+    var users = $scope.addUsers(),
+        rosterId;
+
+    rosterId = rosterService.create({
       date: $scope.date,
-      volunteers: $scope.addUsers()
-    }).then(function(){
-      console.log("Roster added/updated successfully...");
+      volunteers: users
     });
+
+    for(var i = 0; i < users.length; i++){
+      userService.addRoster({
+        email: users[i],
+        roster: rosterId
+      });
+    }
+
   };
 
 }]);

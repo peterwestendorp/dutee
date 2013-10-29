@@ -3,9 +3,11 @@ appServices.factory('userService', ['FBURL', 'Firebase', 'angularFireAuth', '$ti
       login,
       logout,
       addUser,
+      addRoster,
       addKudos,
       getKudos,
-      _loginCallback;
+      _loginCallback,
+      _emailToId;
 
   _loginCallback = function(error, user){
     if(error){
@@ -22,6 +24,10 @@ appServices.factory('userService', ['FBURL', 'Firebase', 'angularFireAuth', '$ti
         console.log("User added/updated successfully...");
       });
     }
+  };
+
+  _emailToId = function(email){
+    return email.replace('.', '*');
   };
 
   angularFireAuth.initialize(FBURL, {
@@ -55,7 +61,7 @@ appServices.factory('userService', ['FBURL', 'Firebase', 'angularFireAuth', '$ti
 
     var usersRef = appRef.child('users'),
         deferred = $q.defer(),
-        _newUser = usersRef.child(userObj.email.replace('.', '*'));
+        _newUser = usersRef.child(_emailToId(userObj.email));
 
     // user transaction
     _newUser.transaction(function(currentData){
@@ -72,6 +78,15 @@ appServices.factory('userService', ['FBURL', 'Firebase', 'angularFireAuth', '$ti
     });
 
     return deferred.promise;
+  };
+
+  addRoster = function(args){
+    var userRosterRef,
+        email = args.email,
+        rosterId = args.roster;
+
+    userRosterRef = appRef.child('users/'+_emailToId(email)+'/rosters');
+    userRosterRef.child(rosterId).set('true');
   };
 
   // addKudos = function(added){
@@ -93,7 +108,8 @@ appServices.factory('userService', ['FBURL', 'Firebase', 'angularFireAuth', '$ti
   return {
     login: login,
     logout: logout,
-    addUser: addUser
+    addUser: addUser,
+    addRoster: addRoster
     // addKudos: addKudos
     // getKudos: getKudos
   };

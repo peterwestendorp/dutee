@@ -4,28 +4,14 @@ appServices.factory('rosterService', ['FBURL', 'Firebase', '$timeout', '$q', '$r
       _create;
 
   _create = function(args){
-    var deferred = $q.defer(),
-        _newRoster = rostersRef.child("486548765437856");
+    var _newRoster = rostersRef.push();
 
-    _newRoster.transaction(function(currentData){
-      if(currentData === null){
-        return {
-          date: args.date,
-          volunteers: args.volunteers
-        };
-      }
-      else { return; }
-      deferred.resolve('Roster created');
-    }, function(error, committed, snapshot){
-      if(error){
-        deferred.reject('Roster transaction failed abnormally! '+error);
-      }
-      else if(!committed){
-        deferred.resolve('Roster already exists');
-      }
+    _newRoster.set({
+      date: args.date.toUTCString(),
+      volunteers: args.volunteers
     });
 
-    return deferred.promise;
+    return _newRoster.name();
   };
 
 
