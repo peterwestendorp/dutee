@@ -1,11 +1,15 @@
 'use strict';
 
-appControllers.controller('rosterController', ['$scope', 'FBURL', 'Firebase', 'angularFire', 'userService', 'rosterService', '$timeout', '$routeParams', function($scope, FBURL, Firebase, angularFire, userService, rosterService, $timeout, $routeParams){
+appControllers.controller('rosterController', ['$scope', 'FBURL', 'Firebase', 'angularFire', 'userService', 'rosterService', '$timeout', '$routeParams', '$compile', function($scope, FBURL, Firebase, angularFire, userService, rosterService, $timeout, $routeParams, $compile){
+
+  var dateCount = 1;
+  $scope.dates = {};
 
   $scope.addUsers = function(){
-    var newUsers = $scope.newUsers.replace(" ", "").split(',');
+    var newUsers = $scope.newUsers.replace(" ", "").split(','),
+        i;
 
-    for(var i = 0; i < newUsers.length; i++){
+    for(i = 0; i < newUsers.length; i++){
       userService.addUser({
         email: newUsers[i]
       }).then(function(){
@@ -16,19 +20,34 @@ appControllers.controller('rosterController', ['$scope', 'FBURL', 'Firebase', 'a
     return newUsers;
   };
 
+  $scope.$on('dateAdded', function(e, data){
+    $scope.dates[data.dateName] = data.dateValue.toUTCString();
+    console.log($scope.dates);
+  });
+
+  $scope.addDate = function(){
+    var element;
+
+    dateCount++;
+    element = $compile("<div calendar='date-"+dateCount+"'></div>")($scope);
+    $('*[calendar]').parent().append(element);
+  };
+
   $scope.create = function(){
     var users = $scope.addUsers(),
-        rosterId;
+        rosterId,
+        i;
 
     rosterId = rosterService.create({
-      date: $scope.date,
+      dates: $scope.dates,
       volunteers: users
     });
 
-    for(var i = 0; i < users.length; i++){
+    for(i = 0; i < users.length; i++){
       userService.addRoster({
         email: users[i],
-        roster: rosterId
+        roster: rosterId,
+        dates: $scope.dates
       });
     }
   };

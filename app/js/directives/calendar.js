@@ -5,14 +5,13 @@ appDirectives.directive('calendar', ['$timeout', function($timeout) {
     templateUrl: 'partials/directives/calendar.html',
     replace: true,
     restrict: 'A',
-    scope: false,
+    scope: true,
     controller: function($scope, $element, $attrs, $transclude){
 
       $scope.today = function() {
         $scope.date = new Date();
       };
       $scope.today();
-
 
       $scope.clear = function () {
         $scope.date = null;
@@ -37,6 +36,14 @@ appDirectives.directive('calendar', ['$timeout', function($timeout) {
           $scope.calendarOpened = true;
         });
       };
+
+      $scope.$watch('date', function(newVal, oldVal){
+        console.log("date added");
+        $scope.$emit('dateAdded', {
+          dateName: $attrs.calendar,
+          dateValue: $scope.date
+        });
+      });
 
 
 

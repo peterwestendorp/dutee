@@ -82,12 +82,16 @@ appServices.factory('userService', ['FBURL', 'Firebase', 'angularFireAuth', '$ti
   };
 
   addRoster = function(args){
-    var userRosterRef,
+    var userRostersRef,
         email = args.email,
-        rosterId = args.roster;
+        rosterId = args.roster,
+        dates = args.dates,
+        rosterRef;
 
-    userRosterRef = appRef.child('users/'+_emailToId(email)+'/rosters');
-    userRosterRef.child(rosterId).set(false);
+    userRostersRef = appRef.child('users/'+_emailToId(email)+'/rosters');
+    rosterRef = userRostersRef.child(rosterId);
+    rosterRef.set(false);
+    rosterRef.child('dates').set(dates);
   };
 
   getAvailability = function(args){

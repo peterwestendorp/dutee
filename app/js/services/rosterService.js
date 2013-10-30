@@ -8,7 +8,7 @@ appServices.factory('rosterService', ['FBURL', 'Firebase', '$timeout', '$q', '$r
     var _newRoster = rostersRef.push();
 
     _newRoster.set({
-      date: args.date.toUTCString(),
+      dates: args.dates,
       volunteers: args.volunteers
     });
 

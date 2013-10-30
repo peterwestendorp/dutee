@@ -9,10 +9,16 @@
       </form>
     </li>
     <li>
-      <h3>Select date</h3>
-      <div calendar></div>
+      <h3>Select date(s)</h3>
+
+      <div class="dates">
+        <div calendar="date-1"></div>
+      </div>
+
+      <button ng-click="addDate()" class="btn">Add another date</button>
     </li>
   </ol>
+
   <button ng-click="create()" class="btn">Create roster</button>
 
   <!-- <button ng-click="addKudos(5)" class="btn">set kudos</button> -->
