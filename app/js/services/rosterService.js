@@ -1,9 +1,10 @@
 appServices.factory('rosterService', ['FBURL', 'Firebase', '$timeout', '$q', '$rootScope', '$location',function (FBURL, Firebase, $timeout, $q, $rootScope, $location){
   var appRef = new Firebase(FBURL),
       rostersRef = appRef.child('rosters'),
-      _create;
+      create,
+      get;
 
-  _create = function(args){
+  create = function(args){
     var _newRoster = rostersRef.push();
 
     _newRoster.set({
@@ -14,8 +15,12 @@ appServices.factory('rosterService', ['FBURL', 'Firebase', '$timeout', '$q', '$r
     return _newRoster.name();
   };
 
+  get = function(id, callback){
+    rostersRef.child(id).on('value', callback);
+  };
 
   return {
-    create: _create
+    create: create,
+    get: get
   };
 }]);

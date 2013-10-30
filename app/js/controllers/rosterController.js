@@ -1,6 +1,6 @@
 'use strict';
 
-appControllers.controller('rosterController', ['$scope', 'FBURL', 'Firebase', 'angularFire', 'userService', 'rosterService', '$timeout', function($scope, FBURL, Firebase, angularFire, userService, rosterService, $timeout){
+appControllers.controller('rosterController', ['$scope', 'FBURL', 'Firebase', 'angularFire', 'userService', 'rosterService', '$timeout', '$routeParams', function($scope, FBURL, Firebase, angularFire, userService, rosterService, $timeout, $routeParams){
 
   $scope.addUsers = function(){
     var newUsers = $scope.newUsers.replace(" ", "").split(',');
@@ -16,7 +16,7 @@ appControllers.controller('rosterController', ['$scope', 'FBURL', 'Firebase', 'a
     return newUsers;
   };
 
-  $scope.createRoster = function(){
+  $scope.create = function(){
     var users = $scope.addUsers(),
         rosterId;
 
@@ -31,7 +31,35 @@ appControllers.controller('rosterController', ['$scope', 'FBURL', 'Firebase', 'a
         roster: rosterId
       });
     }
-
   };
+
+  $scope.show = function(id){
+    rosterService.get(id, function(snapshot){
+      $scope.roster = snapshot.val();
+
+      $scope.volunteers = [];
+
+      angular.forEach($scope.roster.volunteers, function(email){
+        userService.getAvailability({
+          email:email,
+          rosterId: id,
+          callback: function(available){
+            $scope.volunteers.push({
+              email:email,
+              canAttend: available.val()
+            });
+
+            $scope.$apply();
+          }
+        });
+      });
+
+      $scope.$apply();
+     });
+  };
+
+  if($routeParams.id){
+    $scope.show($routeParams.id);
+  }
 
 }]);

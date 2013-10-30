@@ -2,7 +2,7 @@
 
 // Declare app level module which depends on filters, and services
 angular.module('duteeApp',
-      ['duteeApp.config', 'duteeApp.filters', 'duteeApp.services', 'duteeApp.directives', 'duteeApp.controllers', 'firebase', 'ui.bootstrap']
+      ['duteeApp.config', 'duteeApp.filters', 'duteeApp.services', 'duteeApp.directives', 'duteeApp.controllers', 'firebase', 'ui.bootstrap', 'ngCookies']
    )
 
    // configure views; note the authRequired parameter for authenticated pages
@@ -13,6 +13,10 @@ angular.module('duteeApp',
 
       $routeProvider.when('/roster/new', {
          templateUrl: 'partials/roster/new.html'
+      });
+
+      $routeProvider.when('/roster/:id', {
+         templateUrl: 'partials/roster/show.html'
       });
 
       $routeProvider.otherwise({redirectTo: '/'});

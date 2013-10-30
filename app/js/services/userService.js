@@ -1,9 +1,10 @@
-appServices.factory('userService', ['FBURL', 'Firebase', 'angularFireAuth', '$timeout', '$q', '$rootScope', '$location',function (FBURL, Firebase, angularFireAuth, $timeout, $q, $rootScope, $location){
+appServices.factory('userService', ['FBURL', 'Firebase', 'angularFireAuth', '$timeout', '$q', '$rootScope', '$location', function (FBURL, Firebase, angularFireAuth, $timeout, $q, $rootScope, $location){
   var appRef = new Firebase(FBURL),
       login,
       logout,
       addUser,
       addRoster,
+      getAvailability,
       addKudos,
       getKudos,
       _loginCallback,
@@ -86,8 +87,15 @@ appServices.factory('userService', ['FBURL', 'Firebase', 'angularFireAuth', '$ti
         rosterId = args.roster;
 
     userRosterRef = appRef.child('users/'+_emailToId(email)+'/rosters');
-    userRosterRef.child(rosterId).set('true');
+    userRosterRef.child(rosterId).set(false);
   };
+
+  getAvailability = function(args){
+    var userRosterRef;
+
+    userRosterRef = appRef.child('users/'+_emailToId(args.email)+'/rosters/'+args.rosterId);
+    userRosterRef.on('value', args.callback);
+  }
 
   // addKudos = function(added){
   //   if(!$rootScope.user){return;}
@@ -109,7 +117,8 @@ appServices.factory('userService', ['FBURL', 'Firebase', 'angularFireAuth', '$ti
     login: login,
     logout: logout,
     addUser: addUser,
-    addRoster: addRoster
+    addRoster: addRoster,
+    getAvailability: getAvailability
     // addKudos: addKudos
     // getKudos: getKudos
   };
