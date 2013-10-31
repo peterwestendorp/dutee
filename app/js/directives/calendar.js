@@ -38,7 +38,6 @@ appDirectives.directive('calendar', ['$timeout', function($timeout) {
       };
 
       $scope.$watch('date', function(newVal, oldVal){
-        console.log("date added");
         $scope.$emit('dateAdded', {
           dateName: $attrs.calendar,
           dateValue: $scope.date

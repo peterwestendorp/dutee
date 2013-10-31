@@ -88,6 +88,13 @@ appServices.factory('userService', ['FBURL', 'Firebase', 'angularFireAuth', '$ti
         dates = args.dates,
         rosterRef;
 
+    for(var date in dates){
+      dates[date] = {
+        date: args.dates[date].date,
+        canAttend: true
+      }
+    }
+
     userRostersRef = appRef.child('users/'+_emailToId(email)+'/rosters');
     rosterRef = userRostersRef.child(rosterId);
     rosterRef.set(false);

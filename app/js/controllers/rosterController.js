@@ -2,8 +2,8 @@
 
 appControllers.controller('rosterController', ['$scope', 'FBURL', 'Firebase', 'angularFire', 'userService', 'rosterService', '$timeout', '$routeParams', '$compile', function($scope, FBURL, Firebase, angularFire, userService, rosterService, $timeout, $routeParams, $compile){
 
-  var dateCount = 1;
-  $scope.dates = {};
+  var dateCount = 1,
+      dates = {};
 
   $scope.addUsers = function(){
     var newUsers = $scope.newUsers.replace(" ", "").split(','),
@@ -21,8 +21,7 @@ appControllers.controller('rosterController', ['$scope', 'FBURL', 'Firebase', 'a
   };
 
   $scope.$on('dateAdded', function(e, data){
-    $scope.dates[data.dateName] = data.dateValue.toUTCString();
-    console.log($scope.dates);
+    dates[data.dateName] = data.dateValue.toUTCString();
   });
 
   $scope.addDate = function(){
@@ -39,7 +38,7 @@ appControllers.controller('rosterController', ['$scope', 'FBURL', 'Firebase', 'a
         i;
 
     rosterId = rosterService.create({
-      dates: $scope.dates,
+      dates: dates,
       volunteers: users
     });
 
@@ -47,7 +46,7 @@ appControllers.controller('rosterController', ['$scope', 'FBURL', 'Firebase', 'a
       userService.addRoster({
         email: users[i],
         roster: rosterId,
-        dates: $scope.dates
+        dates: dates
       });
     }
   };
