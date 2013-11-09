@@ -104,8 +104,10 @@ appServices.factory('userService', ['FBURL', 'Firebase', 'angularFireAuth', '$ti
   getAvailability = function(args){
     var userRosterRef;
 
-    userRosterRef = appRef.child('users/'+_emailToId(args.email)+'/rosters/'+args.rosterId);
-    userRosterRef.on('value', args.callback);
+    userRosterRef = appRef.child('users/'+_emailToId(args.email)+'/rosters/'+args.rosterId+'/dates/'+args.date);
+    userRosterRef.on('value', function(a){
+      args.callback(a.val().canAttend);
+    });
   }
 
   // addKudos = function(added){

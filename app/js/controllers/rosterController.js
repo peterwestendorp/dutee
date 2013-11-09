@@ -55,25 +55,42 @@ appControllers.controller('rosterController', ['$scope', 'FBURL', 'Firebase', 'a
     rosterService.get(id, function(snapshot){
       $scope.roster = snapshot.val();
 
-      $scope.volunteers = [];
+      $scope.rosterView = {
+        dates: [],
+        volunteers: {}
+      };
 
-      angular.forEach($scope.roster.volunteers, function(email){
-        userService.getAvailability({
-          email:email,
-          rosterId: id,
-          callback: function(available){
-            $scope.volunteers.push({
-              email:email,
-              canAttend: available.val()
-            });
+      // per date in the roster...
+      angular.forEach($scope.roster.dates, function(dateVal, dateName){
 
-            $scope.$apply();
-          }
+        // ...add date to dates array to show in <th>
+        $scope.rosterView.dates.push(dateVal.date);
+
+        // per user linked to the roster...
+        angular.forEach($scope.roster.volunteers, function(email){
+
+          // ...find out their availability on that date
+          userService.getAvailability({
+            email:email,
+            rosterId: id,
+            date: dateName,
+            callback: function(available){
+              if(!$scope.rosterView.volunteers.hasOwnProperty(email)){
+                $scope.rosterView.volunteers[email] = {};
+              }
+
+              // add volunteer and date availability to rosterView object
+              $scope.rosterView.volunteers[email][Date.parse(dateVal.date)] = {
+                canAttend: available,
+                dateString: dateVal.date
+              };
+
+              $scope.$apply();
+            }
+          });
         });
       });
-
-      $scope.$apply();
-     });
+    });
   };
 
   if($routeParams.id){

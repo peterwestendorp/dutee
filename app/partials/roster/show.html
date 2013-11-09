@@ -4,11 +4,13 @@
     <thead>
       <tr>
         <th>Name:</th>
+        <th ng-repeat="date in rosterView.dates">{{date}}</th>
       </tr>
     </thead>
     <tbody>
-      <tr ng-class="{success: volunteer.canAttend, error: !volunteer.canAttend}" ng-repeat="volunteer in volunteers">
-        <td>{{volunteer.email}}</td>
+      <tr ng-repeat="(email, dates) in rosterView.volunteers">
+        <td>{{email}}</td>
+        <td ng-repeat="date in dates" ng-class="{success: date.canAttend, error: !date.canAttend}"></td>
       </tr>
     </tbody>
   </table>

@@ -97,6 +97,40 @@ a.button.facebook-login:before {
   border-top-left-radius: 4px;
   border-bottom-left-radius: 4px;
 }
+
+.table {
+  border-radius: 10px;
+}
+.table td,
+.table th {
+  border: 1px solid #dddddd;
+}
+table tbody tr td.success,
+table tbody tr th.success,
+.table-striped tbody > tr:nth-child(odd) > td.success,
+.table-striped tbody > tr:nth-child(odd) > th.success {
+  text-align:center;
+  background-color: #dff0d8;
+}
+table tbody tr td.success:after,
+table tbody tr th.success:after {
+  content: "\2714";
+  color: green;
+}
+table tbody tr td.error,
+table tbody tr th.error,
+.table-striped tbody > tr:nth-child(odd) > td.error,
+.table-striped tbody > tr:nth-child(odd) > th.error {
+  text-align: center;
+  background-color: #f2dede;
+}
+table tbody tr td.error:after,
+table tbody tr th.error:after {
+  content: "\2718";
+  color: red;
+}
+
+
 div.header {
   max-height: 300px;
   padding: 50px 10%;
