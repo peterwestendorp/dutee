@@ -51,8 +51,11 @@ appControllers.controller('rosterController', ['$scope', 'FBURL', 'Firebase', 'a
     }
   };
 
-  $scope.show = function(id){
-    rosterService.get(id, function(snapshot){
+
+  $scope.show = function(a){
+    $scope.currentRosterId = a.id;
+
+    rosterService.get($scope.currentRosterId, function(snapshot){
       $scope.roster = snapshot.val();
 
       $scope.rosterView = {
@@ -72,29 +75,40 @@ appControllers.controller('rosterController', ['$scope', 'FBURL', 'Firebase', 'a
           // ...find out their availability on that date
           userService.getAvailability({
             email:email,
-            rosterId: id,
+            rosterId: $scope.currentRosterId,
             date: dateName,
-            callback: function(available){
+            callback: function(availability){
               if(!$scope.rosterView.volunteers.hasOwnProperty(email)){
                 $scope.rosterView.volunteers[email] = {};
               }
 
               // add volunteer and date availability to rosterView object
               $scope.rosterView.volunteers[email][Date.parse(dateVal.date)] = {
-                canAttend: available,
-                dateString: dateVal.date
+                canAttend: availability,
+                dateName: dateName,
+                editable: (a.email == email)
               };
 
               $scope.$apply();
             }
           });
         });
+
       });
     });
   };
 
+  $scope.update = function(email, dateName, value){
+    userService.updateAvailability({
+      email:email,
+      rosterId: $scope.currentRosterId,
+      date: dateName,
+      value: value
+    });
+  };
+
   if($routeParams.id){
-    $scope.show($routeParams.id);
+    $scope.show($routeParams);
   }
 
 }]);

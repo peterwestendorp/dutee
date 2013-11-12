@@ -5,6 +5,7 @@ appServices.factory('userService', ['FBURL', 'Firebase', 'angularFireAuth', '$ti
       addUser,
       addRoster,
       getAvailability,
+      updateAvailability,
       addKudos,
       getKudos,
       _loginCallback,
@@ -91,7 +92,7 @@ appServices.factory('userService', ['FBURL', 'Firebase', 'angularFireAuth', '$ti
     for(var date in dates){
       dates[date] = {
         date: args.dates[date].date,
-        canAttend: true
+        canAttend: null
       }
     }
 
@@ -108,7 +109,14 @@ appServices.factory('userService', ['FBURL', 'Firebase', 'angularFireAuth', '$ti
     userRosterRef.on('value', function(a){
       args.callback(a.val().canAttend);
     });
-  }
+  };
+
+  updateAvailability = function(args){
+    var userRosterRef;
+
+    userRosterRef = appRef.child('users/'+_emailToId(args.email)+'/rosters/'+args.rosterId+'/dates/'+args.date);
+    userRosterRef.update({canAttend: args.value});
+  };
 
   // addKudos = function(added){
   //   if(!$rootScope.user){return;}
@@ -131,7 +139,8 @@ appServices.factory('userService', ['FBURL', 'Firebase', 'angularFireAuth', '$ti
     logout: logout,
     addUser: addUser,
     addRoster: addRoster,
-    getAvailability: getAvailability
+    getAvailability: getAvailability,
+    updateAvailability: updateAvailability
     // addKudos: addKudos
     // getKudos: getKudos
   };
