@@ -89,7 +89,9 @@ appControllers.controller('rosterController', ['$scope', 'FBURL', 'Firebase', 'a
                 editable: (a.email == email)
               };
 
-              $scope.$apply();
+              if(!$scope.$$phase){
+                $scope.$apply();
+              }
             }
           });
         });

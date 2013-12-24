@@ -118,22 +118,6 @@ appServices.factory('userService', ['FBURL', 'Firebase', 'angularFireAuth', '$ti
     userRosterRef.update({canAttend: args.value});
   };
 
-  // addKudos = function(added){
-  //   if(!$rootScope.user){return;}
-
-  //   _newUser.child('kudos').transaction(function(kudos){
-  //     return kudos+added;
-  //   }, function(error){
-  //     if(error){
-  //       console.error("Adding kudos failed");
-  //     }
-  //   });
-  // };
-
-  // getKudos = function(){
-  //   console.log(_newUser.kudos);
-  // };
-
   return {
     login: login,
     logout: logout,
@@ -141,7 +125,5 @@ appServices.factory('userService', ['FBURL', 'Firebase', 'angularFireAuth', '$ti
     addRoster: addRoster,
     getAvailability: getAvailability,
     updateAvailability: updateAvailability
-    // addKudos: addKudos
-    // getKudos: getKudos
   };
 }]);
