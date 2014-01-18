@@ -11,34 +11,85 @@ describe('service', function() {
       $provide.value('angularFireAuth', angularAuthStub());
    }));
 
-   describe('userService', function() {
-      describe('#login', function() {
-          it('should invoke angularFireAuth.login with correct arguments',
-            inject(function(userService, angularFireAuth){
-              userService.login();
-              expect(angularFireAuth.login).toHaveBeenCalledWith('facebook', {
-                rememberMe: true,
-                scope: 'email'
-              });
-            })
-          );
+   describe('userService', function(){
+      var appRef;
+
+      describe('#login', function(){
+        it('should call angularFireAuth.login with correct arguments',
+          inject(function(userService, angularFireAuth) {
+            userService.login();
+
+            expect(angularFireAuth.login).toHaveBeenCalledWith('facebook', {
+              rememberMe: true,
+              scope: 'email'
+            });
+          })
+        );
       });
 
-      describe('#logout', function() {
-         it('should invoke angularFireAuth.logout()', function() {
-            inject(function(userService, angularFireAuth) {
-               userService.logout();
-               expect(angularFireAuth.logout).toHaveBeenCalled();
-            });
-         });
+      describe('#logout', function(){
+        it('should invoke angularFireAuth.logout()', function() {
+          inject(function(userService, angularFireAuth, $location){
+            userService.logout();
+            expect(angularFireAuth.logout).toHaveBeenCalled();
+          });
+        });
 
-         it('should invoke redirect after calling logout', function() {
-            inject(function(userService, angularFireAuth, $location) {
-               userService.logout();
-               expect($location.path).toHaveBeenCalledWith('/');
-            });
-         });
+        it('should invoke redirect after calling logout', function() {
+          inject(function(userService, $location){
+            userService.logout();
+            expect($location.path).toHaveBeenCalledWith('/');
+          });
+        });
       });
+
+      // describe('#addUser', function(){
+      //   it('should open a transaction for the new user and return a promise', function(){
+      //     inject(function(userService){
+
+      //       var refs = userService.addUser({
+      //         facebook_uid: 99,
+      //         email: "foo@bar.com",
+      //         first_name: "foo",
+      //         last_name: "bar",
+      //         timezone: 1
+      //       }).refs;
+
+      //       expect(refs.usersRef.child).toHaveBeenCalledWith('foo@bar*com');
+      //     });
+
+      //   });
+      // });
+
+      describe('#addRoster', function(){
+
+        it('should call Firebase with the right arguments', function(){
+          inject(function(userService, Firebase, FBURL){
+            var addRosterArgs = {
+              email: "foo@bar.com",
+              roster: "-JDaf5Z8tWcmgDMIbSQk",
+              dates: {
+                "date-1": {
+                  date: "Sat, 18 Jan 2014 18:45:42 GMT"
+                },
+                "date-2": {
+                  date: "Sun, 19 Jan 2014 18:45:49 GMT"
+                }
+              }
+            },
+            refs = userService.addRoster(addRosterArgs);
+
+            expect(refs.appRef.child).toHaveBeenCalledWith('users/foo@bar*com/rosters');
+            expect(refs.userRostersRef.child).toHaveBeenCalledWith('-JDaf5Z8tWcmgDMIbSQk');
+            expect(refs.rosterRef.set).toHaveBeenCalledWith(false);
+          });
+        });
+
+      });
+
+      // describe('#getAvailability', function(){});
+
+      // describe('#updateAvailability', function(){});
 
    });
 

@@ -5,12 +5,34 @@
 describe('controllers', function(){
   beforeEach(module('duteeApp.controllers'));
 
+  describe('rosterController', function(){
+    describe('#addUsers', function(){
+      it('should call userService.addUser', function(){});
 
-  it('should ....', inject(function() {
-    //spec body
-  }));
+      it('return newUser array', function(){});
+    });
 
-  it('should ....', inject(function() {
-    //spec body
-  }));
+    describe('#create', function(){
+      it('should call rosterService.create', function(){});
+
+      it('should call userService.addRoster', function(){});
+    });
+
+    describe('#show', function(){
+
+    });
+
+    describe('#update', function(){
+
+    });
+  });
+
+
+  // it('should ....', inject(function() {
+  //   //spec body
+  // }));
+
+  // it('should ....', inject(function() {
+  //   //spec body
+  // }));
 });
