@@ -1,5 +1,10 @@
 'use strict';
 
+var appDirectives = angular.module('duteeApp.directives', []),
+    appControllers = angular.module('duteeApp.controllers', []),
+    appServices = angular.module('duteeApp.services', []),
+    appFilters = angular.module('duteeApp.filters', []);
+
 // Declare app level module which depends on filters, and services
 angular.module('duteeApp',
       ['duteeApp.config', 'duteeApp.filters', 'duteeApp.services', 'duteeApp.directives', 'duteeApp.controllers', 'firebase', 'ui.bootstrap', 'ngCookies', 'ngRoute']
@@ -13,6 +18,10 @@ angular.module('duteeApp',
 
       $routeProvider.when('/roster/new', {
          templateUrl: 'partials/roster/new.html'
+      });
+
+      $routeProvider.when('/roster/:id/suggestion', {
+         templateUrl: 'partials/suggestion/show.html'
       });
 
       $routeProvider.when('/roster/:id/:email', {
@@ -59,8 +68,3 @@ angular.module('duteeApp',
    //      }
    //    };
    // }]);
-
-var appDirectives = angular.module('duteeApp.directives', []),
-    appControllers = angular.module('duteeApp.controllers', []),
-    appServices = angular.module('duteeApp.services', []),
-    appFilters = angular.module('duteeApp.filters', []);

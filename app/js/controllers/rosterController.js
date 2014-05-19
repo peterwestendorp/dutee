@@ -5,6 +5,7 @@ appControllers.controller('rosterController', ['$scope', 'FBURL', 'Firebase', 'a
   var dateCount = 1,
       dates = {};
 
+  // add users from email input (comma separated)
   $scope.addUsers = function(){
     var newUsers = $scope.newUsers.replace(" ", "").split(','),
         i;
@@ -24,6 +25,7 @@ appControllers.controller('rosterController', ['$scope', 'FBURL', 'Firebase', 'a
     dates[data.dateName] = data.dateValue.toUTCString();
   });
 
+  // add date selection input
   $scope.addDate = function(){
     var element;
 
@@ -51,9 +53,8 @@ appControllers.controller('rosterController', ['$scope', 'FBURL', 'Firebase', 'a
     }
   };
 
-
-  $scope.show = function(a){
-    $scope.currentRosterId = a.id;
+  $scope.show = function(params){
+    $scope.currentRosterId = params.id;
 
     rosterService.get($scope.currentRosterId, function(snapshot){
       $scope.roster = snapshot.val();
@@ -86,7 +87,7 @@ appControllers.controller('rosterController', ['$scope', 'FBURL', 'Firebase', 'a
               $scope.rosterView.volunteers[email][Date.parse(dateVal.date)] = {
                 canAttend: availability,
                 dateName: dateName,
-                editable: (a.email == email)
+                editable: (params.email == email)
               };
 
               if(!$scope.$$phase){
@@ -100,6 +101,7 @@ appControllers.controller('rosterController', ['$scope', 'FBURL', 'Firebase', 'a
     });
   };
 
+  // update availability
   $scope.update = function(email, dateName, value){
     userService.updateAvailability({
       email:email,
