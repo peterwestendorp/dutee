@@ -9,7 +9,5 @@ var exampleVNode = h_1.h('div', {
     }
 }, function () { return exampleContent; });
 my_vdom_1.myVDOM.add(exampleVNode);
-requestAnimationFrame(function () {
-    my_vdom_1.myVDOM.render();
-});
+my_vdom_1.myVDOM.append(document.getElementById('app'));
 //# sourceMappingURL=example.js.map

@@ -12,7 +12,5 @@ let exampleVNode: VNode = h('div', {
 );
 
 myVDOM.add(exampleVNode);
-requestAnimationFrame(() => {
-  myVDOM.render();
-});
+myVDOM.append(document.getElementById('app'));
 

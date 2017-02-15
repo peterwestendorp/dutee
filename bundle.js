@@ -83,9 +83,30 @@ exports.h = function (selector, properties, getContent) {
 
 /***/ }),
 /* 1 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-throw new Error("Module parse failed: /Users/peterwestendorp/Development/dutee/node_modules/ts-loader/index.js!/Users/peterwestendorp/Development/dutee/my-vdom.ts Unexpected token (6:12)\nYou may need an appropriate loader to handle this file type.\n|     add: function () {\n|     },\n|     start: () -  > {\n|         myVDOM: .render(),\n|         document: .body.appendChild(element)");
+"use strict";
+
+var element;
+var vNode;
+exports.myVDOM = {
+    add: function (vnode) {
+        vNode = vnode;
+    },
+    append: function (rootElement) {
+        if (vNode) {
+            element = document.createElement(vNode.selector);
+            element.addEventListener('click', vNode.properties.onclick);
+            element.innerText = vNode.getContent();
+        }
+        rootElement.appendChild(element);
+    },
+    render: function () {
+        // element.innerText = vdom.getContent();
+        // console.log('rendering VDOM', vdom);
+    }
+};
+
 
 /***/ }),
 /* 2 */
@@ -103,9 +124,7 @@ var exampleVNode = h_1.h('div', {
     }
 }, function () { return exampleContent; });
 my_vdom_1.myVDOM.add(exampleVNode);
-requestAnimationFrame(function () {
-    my_vdom_1.myVDOM.render();
-});
+my_vdom_1.myVDOM.append(document.getElementById('app'));
 
 
 /***/ })

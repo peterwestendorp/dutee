@@ -9,21 +9,23 @@ export interface VNode {
 }
 
 let element: HTMLElement;
+let vNode: VNode;
 
 export let myVDOM = {
-  add: () => {
-
+  add: (vnode: VNode) => {
+    vNode = vnode;
   },
-  start: () -> {
-    myVDOM.render();
-    document.body.appendChild(element);
-  },
-  render: (vdom: VNode) => {
-    if (!element) {
-      element =  document.createElement(vdom.selector);
-      element.addEventListener('click', vdom.properties.onclick);
+  append: (rootElement: HTMLElement) => {
+    if (vNode) {
+      element = document.createElement(vNode.selector);
+      element.addEventListener('click', vNode.properties.onclick);
+      element.innerText = vNode.getContent();
     }
-    element.innerText = vdom.getContent();
+
+    rootElement.appendChild(element);
+  },
+  render: () => {
+    // element.innerText = vdom.getContent();
     // console.log('rendering VDOM', vdom);
   }
 };
