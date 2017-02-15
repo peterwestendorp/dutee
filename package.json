@@ -1,11 +1,27 @@
 {
-  "name": "angularjs-seed",
-  "description": "A starter project for angular js",
+  "name": "dutee",
+  "version": "1.0.0",
+  "description": "Fair duty schedule manager",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack -w --config webpack.config.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/peterwestendorp/dutee.git"
+  },
+  "author": "Peter Westendorp",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/peterwestendorp/dutee/issues"
+  },
+  "homepage": "https://github.com/peterwestendorp/dutee#readme",
   "devDependencies": {
-        "phantomjs" : "*",
-        "karma" : "*",
-        "karma-junit-reporter" : "*",
-        "karma-jasmine" : "*",
-        "karma-ng-scenario" : "*"
-    }
+    "maquette": "^2.4.1",
+    "source-map-loader": "^0.1.6",
+    "ts-loader": "^2.0.0",
+    "typescript": "^2.1.6",
+    "webpack": "^2.2.1"
+  }
 }

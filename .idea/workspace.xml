@@ -1,0 +1,719 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="ae59dd30-d3a7-4a4d-8633-d67124659a82" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fonts/icomoon.eot" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fonts/icomoon.ttf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fonts/icomoon.woff" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/Dutee.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/codeStyleSettings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/typescript-compiler.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bundle.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/css/application.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/css/bootstrap.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/css/fonts.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/css/reset.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/example.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/example.js.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/example.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fonts/IcoMoon Session.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fonts/icomoon.dev.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fonts/icomoon.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/h.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/h.js.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/h.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/my-vdom.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/my-vdom.js.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/my-vdom.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tsconfig.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webpack.config.js" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/bin/rackup" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/config" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/bin/rackup" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/cache/rack-1.5.2.gem" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/COPYING" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/KNOWN-ISSUES" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/README.rdoc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/Rakefile" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/SPEC" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/bin/rackup" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/contrib/rack.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/contrib/rack.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/contrib/rack_logo.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/contrib/rdoc.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/example/lobster.ru" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/example/protectedlobster.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/example/protectedlobster.ru" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/lib/rack.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/lib/rack/auth/abstract/handler.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/lib/rack/auth/abstract/request.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/lib/rack/auth/basic.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/lib/rack/auth/digest/md5.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/lib/rack/auth/digest/nonce.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/lib/rack/auth/digest/params.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/lib/rack/auth/digest/request.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/lib/rack/backports/uri/common_18.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/lib/rack/backports/uri/common_192.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/lib/rack/backports/uri/common_193.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/lib/rack/body_proxy.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/lib/rack/builder.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/lib/rack/cascade.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/lib/rack/chunked.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/lib/rack/commonlogger.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/lib/rack/conditionalget.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/lib/rack/config.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/lib/rack/content_length.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/lib/rack/content_type.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/lib/rack/deflater.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/lib/rack/directory.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/lib/rack/etag.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/lib/rack/file.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/lib/rack/handler.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/lib/rack/handler/cgi.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/lib/rack/handler/evented_mongrel.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/lib/rack/handler/fastcgi.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/lib/rack/handler/lsws.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/lib/rack/handler/mongrel.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/lib/rack/handler/scgi.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/lib/rack/handler/swiftiplied_mongrel.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/lib/rack/handler/thin.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/lib/rack/handler/webrick.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/lib/rack/head.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/lib/rack/lint.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/lib/rack/lobster.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/lib/rack/lock.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/lib/rack/logger.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/lib/rack/methodoverride.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/lib/rack/mime.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/lib/rack/mock.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/lib/rack/multipart.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/lib/rack/multipart/generator.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/lib/rack/multipart/parser.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/lib/rack/multipart/uploaded_file.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/lib/rack/nulllogger.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/lib/rack/recursive.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/lib/rack/reloader.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/lib/rack/request.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/lib/rack/response.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/lib/rack/rewindable_input.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/lib/rack/runtime.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/lib/rack/sendfile.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/lib/rack/server.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/lib/rack/session/abstract/id.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/lib/rack/session/cookie.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/lib/rack/session/memcache.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/lib/rack/session/pool.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/lib/rack/showexceptions.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/lib/rack/showstatus.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/lib/rack/static.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/lib/rack/urlmap.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/lib/rack/utils.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/lib/rack/utils/okjson.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/rack.gemspec" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/test/builder/anything.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/test/builder/comment.ru" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/test/builder/end.ru" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/test/builder/line.ru" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/test/builder/options.ru" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/test/cgi/assets/folder/test.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/test/cgi/assets/fonts/font.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/test/cgi/assets/images/image.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/test/cgi/assets/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/test/cgi/assets/javascripts/app.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/test/cgi/assets/stylesheets/app.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/test/cgi/lighttpd.conf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/test/cgi/rackup_stub.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/test/cgi/sample_rackup.ru" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/test/cgi/test" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/test/cgi/test+directory/test+file" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/test/cgi/test.fcgi" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/test/cgi/test.ru" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/test/gemloader.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/test/multipart/bad_robots" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/test/multipart/binary" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/test/multipart/content_type_and_no_filename" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/test/multipart/empty" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/test/multipart/fail_16384_nofile" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/test/multipart/file1.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/test/multipart/filename_and_modification_param" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/test/multipart/filename_with_escaped_quotes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/test/multipart/filename_with_escaped_quotes_and_modification_param" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/test/multipart/filename_with_percent_escaped_quotes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/test/multipart/filename_with_unescaped_percentages" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/test/multipart/filename_with_unescaped_percentages2" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/test/multipart/filename_with_unescaped_percentages3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/test/multipart/filename_with_unescaped_quotes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/test/multipart/ie" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/test/multipart/mixed_files" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/test/multipart/nested" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/test/multipart/none" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/test/multipart/semicolon" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/test/multipart/text" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/test/multipart/webkit" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/test/rackup/config.ru" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/test/registering_handler/rack/handler/registering_myself.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/test/spec_auth_basic.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/test/spec_auth_digest.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/test/spec_body_proxy.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/test/spec_builder.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/test/spec_cascade.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/test/spec_cgi.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/test/spec_chunked.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/test/spec_commonlogger.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/test/spec_conditionalget.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/test/spec_config.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/test/spec_content_length.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/test/spec_content_type.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/test/spec_deflater.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/test/spec_directory.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/test/spec_etag.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/test/spec_fastcgi.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/test/spec_file.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/test/spec_handler.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/test/spec_head.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/test/spec_lint.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/test/spec_lobster.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/test/spec_lock.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/test/spec_logger.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/test/spec_methodoverride.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/test/spec_mime.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/test/spec_mock.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/test/spec_mongrel.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/test/spec_multipart.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/test/spec_nulllogger.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/test/spec_recursive.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/test/spec_request.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/test/spec_response.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/test/spec_rewindable_input.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/test/spec_runtime.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/test/spec_sendfile.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/test/spec_server.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/test/spec_session_abstract_id.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/test/spec_session_cookie.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/test/spec_session_memcache.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/test/spec_session_pool.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/test/spec_showexceptions.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/test/spec_showstatus.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/test/spec_static.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/test/spec_thin.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/test/spec_urlmap.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/test/spec_utils.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/test/spec_webrick.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/test/static/another/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/test/static/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/test/testrequest.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/test/unregistered_handler/rack/handler/unregistered.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/gems/rack-1.5.2/test/unregistered_handler/rack/handler/unregistered_long_one.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.bundle/gems/ruby/1.9.1/specifications/rack-1.5.2.gemspec" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Gemfile" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Gemfile.lock" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/IcoMoon Session.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/angular-readme.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/css/.gitkeep" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/css/application.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/css/bootstrap.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/css/fonts.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/css/reset.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/fonts/icomoon.dev.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/fonts/icomoon.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/fonts/icomoon.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/fonts/icomoon.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/fonts/icomoon.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images/.gitkeep" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/index-async.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/js/app.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/js/config.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/js/controllers/mainController.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/js/controllers/rosterController.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/js/controllers/suggestionController.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/js/directives/calendar.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/js/filters.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/js/services/rosterService.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/js/services/suggestionService.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/js/services/userService.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/lib/angular/angular-cookies.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/lib/angular/angular-cookies.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/lib/angular/angular-loader.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/lib/angular/angular-loader.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/lib/angular/angular-resource.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/lib/angular/angular-resource.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/lib/angular/angular-route.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/lib/angular/angular-route.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/lib/angular/angular-sanitize.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/lib/angular/angular-sanitize.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/lib/angular/angular.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/lib/angular/angular.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/lib/angular/version.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/lib/bootstrap/css/bootstrap.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/lib/bootstrap/img/glyphicons-halflings-white.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/lib/bootstrap/img/glyphicons-halflings.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/lib/firebase/angularFire.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/lib/jquery-1.10.2.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/lib/ui-bootstrap-0.6.0.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/lib/ui-bootstrap-0.6.0.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/lib/ui-bootstrap-tpls-0.6.0.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/lib/ui-bootstrap-tpls-0.6.0.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/partials/directives/calendar.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/partials/home.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/partials/roster/edit.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/partials/roster/new.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/partials/roster/show.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/partials/suggestion/show.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/channel.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/config.ru" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/config/karma-e2e.conf.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/config/karma.conf.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/config/security-rules.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/logs/.gitkeep" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/e2e-test.bat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/e2e-test.sh" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/test.bat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/test.sh" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/watchr.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/web-server.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/e2e/runner.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/e2e/scenarios.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/lib/angular/angular-mocks.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/lib/angular/angular-scenario.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/lib/angular/version.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/unit/appSpec.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/unit/configSpec.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/unit/controllersSpec.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/unit/directivesSpec.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/unit/filtersSpec.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/unit/servicesSpec.js" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
+    </list>
+    <ignored path="$PROJECT_DIR$/.tmp/" />
+    <ignored path="$PROJECT_DIR$/temp/" />
+    <ignored path="$PROJECT_DIR$/tmp/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="Dutee" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="12" lean-forward="false" selection-start-line="0" selection-start-column="12" selection-end-line="0" selection-end-column="12" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="tsconfig.json" />
+        <option value="TypeScript File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>reques</find>
+      <find>scheduleRender</find>
+      <find>equest</find>
+      <find>renderFunctions</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/vdom.js" />
+        <option value="$PROJECT_DIR$/vdom.ts" />
+        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/webpack.config.js" />
+        <option value="$PROJECT_DIR$/tsconfig.json" />
+        <option value="$PROJECT_DIR$/h.ts" />
+        <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/example.ts" />
+        <option value="$PROJECT_DIR$/my-vdom.ts" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="43" />
+    <option name="y" value="23" />
+    <option name="width" value="1396" />
+    <option name="height" value="877" />
+  </component>
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource ProjectPane="true" />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dutee" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dutee" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.TypeScript" />
+    <property name="HbShouldOpenHtmlAsHb" value="" />
+    <property name="nodejs_interpreter_path" value="/usr/local/bin/node" />
+    <property name="js.eslint.eslintPackage" value="" />
+    <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+  </component>
+  <component name="RunManager" selected="JavaScript Debug.index.html">
+    <configuration default="false" name="index.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/dutee/index.html">
+      <method />
+    </configuration>
+    <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
+      <method />
+    </configuration>
+    <configuration default="true" type="DartTestRunConfigurationType" factoryName="Dart Test">
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma">
+      <config-file value="" />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerProtractor" factoryName="Protractor">
+      <config-file value="" />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="project" working-dir="">
+      <method />
+    </configuration>
+    <configuration default="true" type="cucumber.js" factoryName="Cucumber.js">
+      <option name="cucumberJsArguments" value="" />
+      <option name="executablePath" />
+      <option name="filePath" />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
+      <command value="run" />
+      <scripts />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="mocha-javascript-test-runner" factoryName="Mocha">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <working-directory />
+      <pass-parent-env>true</pass-parent-env>
+      <envs />
+      <ui />
+      <extra-mocha-options />
+      <test-kind>DIRECTORY</test-kind>
+      <test-directory />
+      <recursive>false</recursive>
+      <method />
+    </configuration>
+    <list size="1">
+      <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.index.html" />
+    </list>
+    <recent_temporary>
+      <list size="1">
+        <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.index.html" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ae59dd30-d3a7-4a4d-8633-d67124659a82" name="Default" comment="" />
+      <created>1475439820135</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1475439820135</updated>
+      <workItem from="1475439822341" duration="1202000" />
+      <workItem from="1485980277967" duration="1992000" />
+      <workItem from="1486499897677" duration="7640000" />
+      <workItem from="1487193836752" duration="36000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="10870000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="43" y="23" width="1396" height="877" extended-state="6" />
+    <editor active="false" />
+    <layout>
+      <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19867061" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3292232" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.44756278" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="processedProjectFiles" value="true" />
+    <option name="exactExcludedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/example.js" />
+        <option value="$PROJECT_DIR$/example.js.map" />
+        <option value="$PROJECT_DIR$/my-vdom.js.map" />
+        <option value="$PROJECT_DIR$/my-vdom.js" />
+        <option value="$PROJECT_DIR$/h.js" />
+        <option value="$PROJECT_DIR$/h.js.map" />
+      </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/fonts.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/fonts.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/application.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2370">
+          <caret line="158" column="1" lean-forward="true" selection-start-line="158" selection-start-column="1" selection-end-line="158" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/.gitkeep" />
+    <entry file="file://$PROJECT_DIR$/my-vdom.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/example.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/fonts.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tsconfig.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="25" lean-forward="false" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webpack.config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="5" lean-forward="false" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="28" lean-forward="true" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="19" lean-forward="false" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/h.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="2" lean-forward="false" selection-start-line="8" selection-start-column="2" selection-end-line="8" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/example.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="16" lean-forward="false" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/my-vdom.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/maquette/src/maquette.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17880">
+          <caret line="1192" column="21" lean-forward="false" selection-start-line="1192" selection-start-column="6" selection-end-line="1192" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bundle.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-462">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="12" lean-forward="false" selection-start-line="0" selection-start-column="12" selection-end-line="0" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
