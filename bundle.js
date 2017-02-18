@@ -92,17 +92,19 @@ var vNode;
 exports.myVDOM = {
     add: function (vnode) {
         vNode = vnode;
+        // create DOM element
     },
     append: function (rootElement) {
         if (vNode) {
             element = document.createElement(vNode.selector);
             element.addEventListener('click', vNode.properties.onclick);
             element.innerText = vNode.getContent();
+            vNode.domNode = element;
         }
         rootElement.appendChild(element);
     },
     render: function () {
-        // element.innerText = vdom.getContent();
+        element.innerText = vNode.getContent();
         // console.log('rendering VDOM', vdom);
     }
 };
@@ -116,11 +118,12 @@ exports.myVDOM = {
 
 var h_1 = __webpack_require__(0);
 var my_vdom_1 = __webpack_require__(1);
-var exampleContent = 'hello world';
+var exampleContent = 'hallo wereld';
 var exampleVNode = h_1.h('div', {
     onclick: function () {
         exampleContent += '!';
         console.log('klik');
+        my_vdom_1.myVDOM.render();
     }
 }, function () { return exampleContent; });
 my_vdom_1.myVDOM.add(exampleVNode);
