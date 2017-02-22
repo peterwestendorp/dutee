@@ -1,35 +1,75 @@
 export interface VNodeProperties {
-  onclick?(): void;
+  id: string;
+  onClick?(): void;
 }
 
 export interface VNode {
   selector: string;
   properties?: VNodeProperties;
-  getContent?(): string;
+  content?: string | VNode[];
   domNode?: HTMLElement;
 }
 
-let element: HTMLElement;
-let vNode: VNode;
+export let h = (selector: string, properties: VNodeProperties, content: string | VNode[]): VNode => {
+  return {
+    selector,
+    properties,
+    content
+  };
+};
+
+let lastTree: VNode;
+let renderTree: () => VNode;
+
+let diff = (newTree: VNode, oldTree: VNode) => {
+  let changed: VNode[] = [];
+  let added: VNode[] = [];
+
+  if (newTree.content.length) {
+    (newTree.content as VNode[]).forEach((child, index) => {
+      if (!oldTree.content[index]) {
+        added.push(child);
+      } else if (oldTree.content[index] && child !== oldTree.content[index]) {
+        changed.push(child);
+      }
+    });
+  }
+
+  return {
+    changed,
+    added
+  }
+};
+
+let append = (vnode: VNode, rootElement: HTMLElement) => {
+  vnode.domNode = document.createElement(vnode.selector);
+  vnode.domNode.addEventListener('click', vnode.properties.onClick);
+
+  if (typeof vnode.content === 'string') {
+  vnode.domNode.textContent = vnode.content;
+} else if (vnode.content.length) {
+  vnode.content.forEach((child) => {
+    append(child, vnode.domNode);
+  });
+}
+
+rootElement.appendChild(vnode.domNode);
+};
 
 export let myVDOM = {
-  add: (vnode: VNode) => {
-    vNode = vnode;
-    // create DOM element
-  },
-  append: (rootElement: HTMLElement) => {
-    if (vNode) {
-      element = document.createElement(vNode.selector);
-      element.addEventListener('click', vNode.properties.onclick);
-      element.innerText = vNode.getContent();
+  init: (render: () => VNode, rootElement: HTMLElement) => {
+    renderTree = render;
+    let vnode = render();
 
-      vNode.domNode = element;
-    }
+    append(vnode, rootElement);
 
-    rootElement.appendChild(element);
+    lastTree = vnode;
   },
-  render: () => {
-    element.innerText = vNode.getContent();
-    // console.log('rendering VDOM', vdom);
+  update: () => {
+    let currentTree = renderTree();
+
+    let difference = diff(currentTree, lastTree);
+
+    lastTree = currentTree;
   }
 };

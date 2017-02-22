@@ -1,18 +1,22 @@
-import { h } from "./h";
-import { myVDOM, VNode } from "./my-vdom";
+import {myVDOM, VNode, h} from "./my-vdom";
 
-let exampleContent = 'hallo wereld';
+let listItems: VNode[] = [
+  h('li', { id: 'list-item-0' }, `item 0`)
+];
 
-let exampleVNode: VNode = h('div', {
-    onclick: () => {
-      exampleContent += '!';
+let addListItem = () => {
+  listItems.push(h('li', { id: `list-item-${listItems.length}` }, `item ${listItems.length}`))
+};
+
+let render = (): VNode => h('ul', {
+    id: 'list',
+    onClick: () => {
       console.log('klik');
-      myVDOM.render();
+      addListItem();
+      myVDOM.update();
     }
   },
-  () => exampleContent
+  listItems
 );
 
-myVDOM.add(exampleVNode);
-myVDOM.append(document.getElementById('app'));
-
+myVDOM.init(render, document.getElementById('app'));
