@@ -9,6 +9,8 @@ export interface VNode {
   domNode?: HTMLElement;
 }
 
+interface Patch {};
+
 export let h = (selector: string, properties: VNodeProperties, content: string | VNode[]): VNode => {
   return {
     selector,
@@ -20,11 +22,17 @@ export let h = (selector: string, properties: VNodeProperties, content: string |
 let lastTree: VNode;
 let renderTree: () => VNode;
 
-let diffAndPatch = (newTree: VNode, oldTree: VNode) => {
+let patch = (patches: Patch[]) => {};
+
+let diff = (newTree: VNode, oldTree: VNode) => {
+  let patches: Patch[]  = [];
+  let index = 0;
+
   let domNode = newTree.domNode = oldTree.domNode!;
   if (!newTree.content  || typeof newTree.content === 'string') {
     if (oldTree.content !== newTree.content) {
-      domNode.textContent = newTree.content || '';
+      patches.push({ index, type: 'TEXT', patch: newTree.content });
+      index++;
     }
   } else {
     if (!Array.isArray(oldTree.content)) {
@@ -32,28 +40,30 @@ let diffAndPatch = (newTree: VNode, oldTree: VNode) => {
     }
     let oldChildren = oldTree.content;
     let newChildren = newTree.content;
-    let oldIndex = 0;
-    let newIndex = 0;
-    while (newIndex < newChildren.length) {
-      let oldChild = oldChildren[oldIndex];
-      let newChild = newChildren[newIndex];
-      if (oldChild && oldChild.selector === newChild.selector) {
-        console.log('diffAndPatch', newChild, oldChild);
-        diffAndPatch(newChild, oldChild);
-        oldIndex++;
-      } else {
-        // TODO: look ahead to find if nodes were removed
-        // for now assume insertion
-        console.log('here', newChild, oldChildren)
-        domNode.insertBefore(createNode(newChild), oldChildren[oldIndex].domNode! || null);
+    let iterations = (newChildren.length > oldChildren.length) ? newChildren.length : oldChildren.length;
+
+    while (index < iterations) {
+      let oldChild = oldChildren[index];
+      let newChild = newChildren[index];
+      if (oldChild && oldChild.selector !== newChild.selector) {
+        patches.push({ index, type: 'SELECTOR', patch: newChild });
       }
-      newIndex++;
+      //   diffAndPatch(newChild, oldChild);
+      //   oldIndex++;
+      // } else {
+      //   // TODO: look ahead to find if nodes were removed
+      //   // for now assume insertion
+      //   domNode.insertBefore(createNode(newChild), oldChildren[oldIndex].domNode! || null);
+      // }
+      // newIndex++;
     }
-    for (; oldIndex < oldChildren.length; oldIndex++) {
-      let oldChild = oldChildren[oldIndex].domNode!;
-      oldChild.parentElement!.removeChild(oldChild);
-    }
+    // for (; oldIndex < oldChildren.length; oldIndex++) {
+    //   let oldChild = oldChildren[oldIndex].domNode!;
+    //   oldChild.parentElement!.removeChild(oldChild);
+    // }
   }
+
+  return patches;
 };
 
 let createNode = (vnode: VNode): HTMLElement => {
@@ -93,7 +103,10 @@ export let myVDOM = {
   update: () => {
     let currentTree = renderTree();
 
-    diffAndPatch(currentTree, lastTree);
+    let patches = diff(currentTree, lastTree);
+    if (patches.length) {
+      patch(patches);
+    }
 
     lastTree = currentTree;
   }
