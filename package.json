@@ -4,7 +4,7 @@
   "description": "Fair duty schedule manager",
   "main": "index.js",
   "scripts": {
-    "start": "webpack -w --config webpack.config.js",
+    "start": "webpack -w --config webpack.config.js --display-error-details",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
