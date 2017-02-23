@@ -1,7 +1,4 @@
 node_modules/
 *.js.map
 .idea/
-bundle.js
-example.js
-my-vdom.js
-h.js
+src/**/*.js
