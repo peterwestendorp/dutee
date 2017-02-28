@@ -6,8 +6,7 @@ export interface VNodeProperties {
 export interface VNode {
   selector: string;
   properties: VNodeProperties;
-  content: string | VNode[] | undefined;
-  domNode?: HTMLElement;
+  content: string | VNode[];
 }
 
 export let h = (selector: string, properties: VNodeProperties, content: string | VNode[]): VNode => {
@@ -24,7 +23,7 @@ let renderTree: () => VNode;
 
 let diffAndPatch = (newTree: VNode, oldTree: VNode, parent: HTMLElement, index: number) => {
   if (!oldTree) {
-    append(newTree, parent);
+    parent.appendChild(createNode(newTree));
   } else if (!newTree) {
     parent.removeChild(parent.childNodes[index]);
   } else if ((newTree.selector !== oldTree.selector) || (typeof newTree.content === 'string' && newTree.content !== oldTree.content)) {
@@ -41,12 +40,12 @@ let createNode = (vnode: VNode): HTMLElement => {
 
   if (typeof vnode.content === 'string') {
     element.textContent = vnode.content;
-  } else if (!Array.isArray(vnode.content)) {
-    throw new Error('VNode content should be either String or VNode[]');
-  } else {
+  } else if (Array.isArray(vnode.content)) {
     vnode.content.forEach((child) => {
-      append(child, element);
+      element.appendChild(createNode(child));
     });
+  } else {
+    throw new Error('VNode content should be either String or VNode[]');
   }
 
   if (vnode.properties.onClick) {
@@ -66,27 +65,19 @@ let createNode = (vnode: VNode): HTMLElement => {
   return element;
 };
 
-let append = (vnode: VNode, rootElement: HTMLElement) => {
-  vnode.domNode = createNode(vnode);
-
-  rootElement.appendChild(vnode.domNode);
-};
-
 export let myVDOM = {
   init: (render: () => VNode, element: HTMLElement) => {
     rootElement = element;
     renderTree = render;
     let vnode = render();
 
-    append(vnode, rootElement);
-
+    rootElement.appendChild(createNode(vnode));
     lastTree = vnode;
   },
   update: () => {
     let currentTree = renderTree();
 
     diffAndPatch(currentTree, lastTree, rootElement, 0);
-
     lastTree = currentTree;
   }
 };
