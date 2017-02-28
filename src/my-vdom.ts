@@ -1,5 +1,6 @@
 export interface VNodeProperties {
-  onClick?(): void;
+  onClick?(evt: MouseEvent): void;
+  onKeyDown?(evt: KeyboardEvent): void;
 }
 
 export interface VNode {
@@ -8,8 +9,6 @@ export interface VNode {
   content: string | VNode[] | undefined;
   domNode?: HTMLElement;
 }
-
-interface Patch {};
 
 export let h = (selector: string, properties: VNodeProperties, content: string | VNode[]): VNode => {
   return {
@@ -20,56 +19,48 @@ export let h = (selector: string, properties: VNodeProperties, content: string |
 };
 
 let lastTree: VNode;
+let rootElement: HTMLElement;
 let renderTree: () => VNode;
 
-let patch = (patches: Patch[]) => {};
-
-let diff = (newTree: VNode, oldTree: VNode) => {
-  let patches: Patch[]  = [];
-  let index = 0;
-
-  let domNode = newTree.domNode = oldTree.domNode!;
-  if (!newTree.content  || typeof newTree.content === 'string') {
-    if (oldTree.content !== newTree.content) {
-      patches.push({ index, type: 'TEXT', patch: newTree.content });
-      index++;
+let diffAndPatch = (newTree: VNode, oldTree: VNode, parent: HTMLElement, index: number) => {
+  if (!oldTree) {
+    append(newTree, parent);
+  } else if (!newTree) {
+    parent.removeChild(parent.childNodes[index]);
+  } else if ((newTree.selector !== oldTree.selector) || (typeof newTree.content === 'string' && newTree.content !== oldTree.content)) {
+    parent.replaceChild(createNode(newTree), parent.childNodes[index]);
+  } else if (newTree !== oldTree && Array.isArray(newTree.content) && Array.isArray(oldTree.content)) {
+    for (let i = 0; i < newTree.content.length || i < oldTree.content.length; i++) {
+      diffAndPatch(newTree.content[i], oldTree.content[i], parent.childNodes[index] as HTMLElement, i);
     }
-  } else {
-    if (!Array.isArray(oldTree.content)) {
-      throw new Error('not supported');
-    }
-    let oldChildren = oldTree.content;
-    let newChildren = newTree.content;
-    let iterations = (newChildren.length > oldChildren.length) ? newChildren.length : oldChildren.length;
-
-    while (index < iterations) {
-      let oldChild = oldChildren[index];
-      let newChild = newChildren[index];
-      if (oldChild && oldChild.selector !== newChild.selector) {
-        patches.push({ index, type: 'SELECTOR', patch: newChild });
-      }
-      //   diffAndPatch(newChild, oldChild);
-      //   oldIndex++;
-      // } else {
-      //   // TODO: look ahead to find if nodes were removed
-      //   // for now assume insertion
-      //   domNode.insertBefore(createNode(newChild), oldChildren[oldIndex].domNode! || null);
-      // }
-      // newIndex++;
-    }
-    // for (; oldIndex < oldChildren.length; oldIndex++) {
-    //   let oldChild = oldChildren[oldIndex].domNode!;
-    //   oldChild.parentElement!.removeChild(oldChild);
-    // }
   }
-
-  return patches;
 };
 
 let createNode = (vnode: VNode): HTMLElement => {
   let element = document.createElement(vnode.selector);
+
+  if (typeof vnode.content === 'string') {
+    element.textContent = vnode.content;
+  } else if (!Array.isArray(vnode.content)) {
+    throw new Error('VNode content should be either String or VNode[]');
+  } else {
+    vnode.content.forEach((child) => {
+      append(child, element);
+    });
+  }
+
   if (vnode.properties.onClick) {
-    element.addEventListener('click', vnode.properties.onClick);
+    element.addEventListener('click', (evt: MouseEvent) => {
+      vnode.properties.onClick!(evt);
+      myVDOM.update();
+    });
+  }
+
+  if (vnode.properties.onKeyDown) {
+    element.addEventListener('keydown', (evt: KeyboardEvent) => {
+      vnode.properties.onKeyDown!(evt);
+      myVDOM.update();
+    });
   }
 
   return element;
@@ -78,21 +69,12 @@ let createNode = (vnode: VNode): HTMLElement => {
 let append = (vnode: VNode, rootElement: HTMLElement) => {
   vnode.domNode = createNode(vnode);
 
-  if (typeof vnode.content === 'string') {
-    vnode.domNode.textContent = vnode.content;
-  } else if (!Array.isArray(vnode.content)) {
-    throw new Error('not supported');
-  } else {
-    vnode.content.forEach((child) => {
-      append(child, vnode.domNode!);
-    });
-  }
-
   rootElement.appendChild(vnode.domNode);
 };
 
 export let myVDOM = {
-  init: (render: () => VNode, rootElement: HTMLElement) => {
+  init: (render: () => VNode, element: HTMLElement) => {
+    rootElement = element;
     renderTree = render;
     let vnode = render();
 
@@ -103,10 +85,7 @@ export let myVDOM = {
   update: () => {
     let currentTree = renderTree();
 
-    let patches = diff(currentTree, lastTree);
-    if (patches.length) {
-      patch(patches);
-    }
+    diffAndPatch(currentTree, lastTree, rootElement, 0);
 
     lastTree = currentTree;
   }
