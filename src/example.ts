@@ -9,8 +9,10 @@ let addListItem = (name: string) => {
 };
 
 let updateNewItemName = (evt: KeyboardEvent) => {
+  let inputElement = evt.target as HTMLInputElement;
   if (evt.key === 'Enter') {
-    addListItem((evt.target as HTMLInputElement).value);
+    addListItem(inputElement.value);
+    inputElement.value = '';
   }
 };
 
