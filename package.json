@@ -1,0 +1,30 @@
+{
+  "name": "Dutee",
+  "version": "1.0.0",
+  "description": "Fair dutie schedule",
+  "main": "bundle.js",
+  "dependencies": {
+    "firebase": "^3.7.5",
+    "firebaseui": "^1.0.1"
+  },
+  "devDependencies": {
+    "awesome-typescript-loader": "^3.1.2",
+    "typescript": "^2.2.2",
+    "webpack": "^2.3.3",
+    "webpack-dev-server": "^2.4.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack-dev-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/peterwestendorp/dutee.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/peterwestendorp/dutee/issues"
+  },
+  "homepage": "https://github.com/peterwestendorp/dutee#readme"
+}
