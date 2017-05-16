@@ -1,24 +1,28 @@
-var firebase = require("firebase/app");
-require("firebase/auth");
-require("firebase/database");
-let firebaseui = require('firebaseui');
+import * as firebase from 'firebase';
+import * as firebaseUI from 'firebaseui';
+import { startApp } from './app';
+
+let loggedInUser: any;
+
+export let getLoggedInUser = () => loggedInUser;
 
 // Initialize Firebase
-var config = {
+firebase.initializeApp({
   apiKey: "AIzaSyDWUuggqMPPlcsc6ez_4IZFRJxFMhckBYU",
   authDomain: "dutee.firebaseapp.com",
   databaseURL: "https://dutee.firebaseio.com",
   projectId: "firebase-dutee",
   storageBucket: "firebase-dutee.appspot.com",
   messagingSenderId: "467628975171"
-};
-firebase.initializeApp(config);
+});
 
-// FirebaseUI config.
-var uiConfig = {
+// Initialize the FirebaseUI Widget using Firebase.
+let firebaseAuthUI = new firebaseUI.auth.AuthUI(firebase.auth());
+
+// The start method will wait until the DOM is loaded.
+firebaseAuthUI.start('#appContainer', {
   signInSuccessUrl: '/',
   signInOptions: [
-    // Leave the lines as is for the providers you want to offer your users.
     // firebase.auth.GoogleAuthProvider.PROVIDER_ID,
     firebase.auth.FacebookAuthProvider.PROVIDER_ID,
     // firebase.auth.TwitterAuthProvider.PROVIDER_ID,
@@ -27,28 +31,23 @@ var uiConfig = {
   ],
   // Terms of service url.
   tosUrl: '<your-tos-url>'
-};
+});
 
-// Initialize the FirebaseUI Widget using Firebase.
-var ui = new firebaseui.auth.AuthUI(firebase.auth());
-// The start method will wait until the DOM is loaded.
-ui.start('#firebaseui-auth-container', uiConfig);
-
-
-
-let initApp = function() {
-  firebase.auth().onAuthStateChanged(function(user: any) {
+let initApp = () => {
+  firebase.auth().onAuthStateChanged((user: any) => {
     if (user) {
       // User is signed in.
-      var displayName = user.displayName;
-      var email = user.email;
-      var emailVerified = user.emailVerified;
-      var photoURL = user.photoURL;
-      var uid = user.uid;
-      var providerData = user.providerData;
-      user.getToken().then(function(accessToken: any) {
-        // document.getElementById('sign-in-status').textContent = 'Signed in';
-        // document.getElementById('sign-in').textContent = 'Sign out';
+      loggedInUser = user;
+
+      let displayName = user.displayName;
+      let email = user.email;
+      let emailVerified = user.emailVerified;
+      let photoURL = user.photoURL;
+      let uid = user.uid;
+      let providerData = user.providerData;
+
+      user.getToken().then((accessToken: any) => {
+        startApp();
         // document.getElementById('account-details').textContent = JSON.stringify({
         //   displayName: displayName,
         //   email: email,
@@ -57,19 +56,14 @@ let initApp = function() {
         //   uid: uid,
         //   accessToken: accessToken,
         //   providerData: providerData
-        // }, null, '  ');
+        // }, null, '  ');  
       });
     } else {
       // User is signed out.
-      // document.getElementById('sign-in-status').textContent = 'Signed out';
-      // document.getElementById('sign-in').textContent = 'Sign in';
-      // document.getElementById('account-details').textContent = 'null';
     }
-  }, function(error: any) {
+  }, (error: any) => {
     console.log(error);
   });
 };
 
-window.addEventListener('load', function() {
-  initApp()
-});
+window.addEventListener('DOMContentLoaded', initApp);

@@ -5,7 +5,8 @@
   "main": "bundle.js",
   "dependencies": {
     "firebase": "^3.7.8",
-    "firebaseui": "^1.0.1"
+    "firebaseui": "^1.0.1",
+    "maquette": "^2.5.0"
   },
   "devDependencies": {
     "@types/node": "^7.0.13",
