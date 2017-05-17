@@ -1,5 +1,6 @@
 import * as firebase from 'firebase';
 import { startApp } from './app';
+import { createProjector} from 'maquette';
 import { createAuthenticationService } from './authenticationService';
 
 // Initialize Firebase
@@ -12,8 +13,9 @@ firebase.initializeApp({
   messagingSenderId: "467628975171"
 });
 
-export let authenticationService = createAuthenticationService();
+let projector = createProjector();
+let authenticationService = createAuthenticationService(projector);
 
 window.addEventListener('DOMContentLoaded', () => {
-  authenticationService.initialize(startApp);
+  startApp(projector, authenticationService);
 });

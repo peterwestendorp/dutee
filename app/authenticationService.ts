@@ -1,73 +1,49 @@
 import * as firebase from 'firebase';
-import * as firebaseUI from 'firebaseui';
+import { h, VNode, Projector } from 'maquette';
 
-let createAuthenticationService = () => {
+export interface AuthenticationService {
+  render(): VNode;
+  getCurrentUser(): any;
+}
+
+let createAuthenticationService = (projector: Projector): AuthenticationService => {
   let loggedInUser: any;
+  let facebookProvider: any;
 
-  let getLoggedInUser = () => {
-    console.log('loggedInUser', loggedInUser);
-    return loggedInUser;
+  let signIn = () => {
+    firebase.auth().signInWithPopup(facebookProvider).then((result: any) => {
+      loggedInUser = result.user;
+      projector.scheduleRender();
+    }).catch((error: any) => {
+      console.error(error);
+      loggedInUser = undefined;
+    });
   };
-  let logout = () => firebase.auth().signOut();
 
-  let initialize = (callback: Function) => {
-    // Initialize the FirebaseUI Widget using Firebase.
-    let firebaseAuthUI = new firebaseUI.auth.AuthUI(firebase.auth());
+  let signOut = () => {
+    firebase.auth().signOut();
+    loggedInUser = undefined;
+  };
 
-    // The start method will wait until the DOM is loaded.
-    firebaseAuthUI.start('#appContainer', {
-      signInSuccessUrl: '/',
-      signInOptions: [
-        // firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-        firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-        // firebase.auth.TwitterAuthProvider.PROVIDER_ID,
-        // firebase.auth.GithubAuthProvider.PROVIDER_ID,
-        // firebase.auth.EmailAuthProvider.PROVIDER_ID
-      ],
-      // Terms of service url.
-      tosUrl: '<your-tos-url>'
-    });
+  let getCurrentUser = () => loggedInUser;
 
-    firebase.auth().onAuthStateChanged((user: any) => {
-      if (user) {
-        // User is signed in.
-        loggedInUser = user;
+  let handleAfterCreate = () => {
+    facebookProvider = new firebase.auth.FacebookAuthProvider();
+  };
 
-        let displayName = user.displayName;
-        let email = user.email;
-        let emailVerified = user.emailVerified;
-        let photoURL = user.photoURL;
-        let uid = user.uid;
-        let providerData = user.providerData;
-
-        user.getToken().then((accessToken: any) => {
-          callback();
-          // document.getElementById('account-details').textContent = JSON.stringify({
-          //   displayName: displayName,
-          //   email: email,
-          //   emailVerified: emailVerified,
-          //   photoURL: photoURL,
-          //   uid: uid,
-          //   accessToken: accessToken,
-          //   providerData: providerData
-          // }, null, '  ');  
-        });
-      } else {
-        // User is signed out.
-        loggedInUser = undefined;
-      }
-    }, (error: any) => {
-      console.log(error);
-    });
-  }
+  let render = () => {
+    return h('div.authenticationService', {
+      afterCreate: handleAfterCreate
+    }, [
+      !getCurrentUser() ? h('button', { onclick: signIn }, 'Sign in with Facebook') : undefined,
+      getCurrentUser() ? h('button', { onclick: signOut }, 'Sign out') : undefined
+    ]);
+  };
 
   return {
-    initialize,
-    getLoggedInUser,
-    logout
+    render,
+    getCurrentUser
   }
 };
-
-
 
 export { createAuthenticationService };
