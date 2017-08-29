@@ -7,13 +7,18 @@ export interface AuthenticationService {
 }
 
 let createAuthenticationService = (projector: Projector): AuthenticationService => {
-  let loggedInUser: any;
-  let facebookProvider: any;
+  let loggedInUser: any = undefined;
+  let facebookProvider = new firebase.auth.FacebookAuthProvider();
 
   let signIn = () => {
-    firebase.auth().signInWithPopup(facebookProvider).then((result: any) => {
-      loggedInUser = result.user;
-      projector.scheduleRender();
+    firebase.auth().signInWithRedirect(facebookProvider).then((result: any) => {
+      if (result.user) {
+        loggedInUser = result.user;
+        projector.scheduleRender();
+      } else {
+        loggedInUser = undefined;
+        console.log('No user found');
+      }
     }).catch((error: any) => {
       console.error(error);
       loggedInUser = undefined;
@@ -21,22 +26,28 @@ let createAuthenticationService = (projector: Projector): AuthenticationService 
   };
 
   let signOut = () => {
-    firebase.auth().signOut();
-    loggedInUser = undefined;
+    firebase.auth().signOut().then(() => {
+      loggedInUser = undefined;
+      projector.scheduleRender();
+    }).catch(console.error);
   };
 
   let getCurrentUser = () => loggedInUser;
 
-  let handleAfterCreate = () => {
-    facebookProvider = new firebase.auth.FacebookAuthProvider();
-  };
+  firebase.auth().onAuthStateChanged((user: any) => {
+    if (user) {
+      loggedInUser = user;
+      projector.scheduleRender();
+    } else {
+      console.log('User logged out');
+      loggedInUser = undefined;
+    }
+  });
 
   let render = () => {
-    let signedIn = !!getCurrentUser();
+    let signedIn = getCurrentUser() !== undefined;
 
-    return h('div.authenticationService', {
-      afterCreate: handleAfterCreate
-    }, [
+    return h('div.authenticationService', [
       !signedIn ? h('button', { key: 'signInButton', onclick: signIn }, 'Sign in with Facebook') : [],
       signedIn ? h('button', { key: 'signOutButton', onclick: signOut }, 'Sign out') : []
     ]);
