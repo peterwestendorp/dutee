@@ -1,9 +1,10 @@
 import * as firebase from 'firebase';
 import { startApp } from './app';
 import { createProjector} from 'maquette';
-import { createAuthenticationService } from './authenticationService';
+import { createAuthenticationService } from './services/authenticationService';
+import { createDatabaseService } from './services/databaseService';
+import { AppContext } from './app';
 
-// Initialize Firebase
 firebase.initializeApp({
   apiKey: "AIzaSyDWUuggqMPPlcsc6ez_4IZFRJxFMhckBYU",
   authDomain: "dutee.firebaseapp.com",
@@ -13,9 +14,16 @@ firebase.initializeApp({
   messagingSenderId: "467628975171"
 });
 
-let projector = createProjector();
-let authenticationService = createAuthenticationService(projector);
-
 window.addEventListener('DOMContentLoaded', () => {
-  startApp(projector, authenticationService);
+  let projector = createProjector();
+  let authenticationService = createAuthenticationService(projector);
+  let databaseService = createDatabaseService();
+
+  startApp({
+    projector,
+    services: {
+      authenticationService,
+      databaseService
+    }
+  });
 });

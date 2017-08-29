@@ -32,18 +32,20 @@ let createAuthenticationService = (projector: Projector): AuthenticationService 
   };
 
   let render = () => {
+    let signedIn = !!getCurrentUser();
+
     return h('div.authenticationService', {
       afterCreate: handleAfterCreate
     }, [
-      !getCurrentUser() ? h('button', { onclick: signIn }, 'Sign in with Facebook') : undefined,
-      getCurrentUser() ? h('button', { onclick: signOut }, 'Sign out') : undefined
+      !signedIn ? h('button', { key: 'signInButton', onclick: signIn }, 'Sign in with Facebook') : [],
+      signedIn ? h('button', { key: 'signOutButton', onclick: signOut }, 'Sign out') : []
     ]);
   };
 
   return {
     render,
     getCurrentUser
-  }
+  };
 };
 
 export { createAuthenticationService };
