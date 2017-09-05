@@ -3,7 +3,6 @@ import { startApp } from './app';
 import { createProjector} from 'maquette';
 import { createAuthenticationService } from './services/authenticationService';
 import { createDatabaseService } from './services/databaseService';
-import { AppContext } from './app';
 
 firebase.initializeApp({
   apiKey: "AIzaSyDWUuggqMPPlcsc6ez_4IZFRJxFMhckBYU",
