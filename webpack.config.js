@@ -1,7 +1,7 @@
 module.exports = {
   entry: './app/index.ts',
   output: {
-    path: __dirname,
+    path: __dirname + '/build/assets',
     filename: 'bundle.js'
   },
   module: {
@@ -15,5 +15,11 @@ module.exports = {
   resolve: {
     extensions: ['.ts', '.js']
   },
-  devtool: 'source-map'
+  devtool: 'source-map',
+  devServer: {
+    contentBase: __dirname + '/public/',
+    compress: true,
+    port: 9000,
+    publicPath: '/assets/'
+  }
 };
