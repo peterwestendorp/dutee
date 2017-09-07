@@ -5,6 +5,7 @@ import { createDateInput } from './components/inputs/date-input';
 import { createTextInput } from './components/inputs/text-input';
 
 export interface AppContext {
+  window: Window;
   projector: Projector;
   services: {
     authenticationService: AuthenticationService;
@@ -14,10 +15,11 @@ export interface AppContext {
 
 let startApp = (appContext: AppContext) => {
   let {
+    window,
     projector,
     services
   } = appContext;
-  let appContainer = document.getElementById('appContainer');
+  let appContainer = window.document.getElementById('appContainer');
 
   let dateField = createDateInput({
     id: 'roster-date',

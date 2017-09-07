@@ -19,6 +19,7 @@ window.addEventListener('DOMContentLoaded', () => {
   let databaseService = createDatabaseService();
 
   startApp({
+    window,
     projector,
     services: {
       authenticationService,
