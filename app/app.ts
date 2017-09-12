@@ -1,8 +1,8 @@
 import { h, Projector } from 'maquette';
 import { AuthenticationService } from './services/authenticationService';
 import { DatabaseService } from './services/databaseService';
-import { createDateInput } from './components/inputs/date-input';
-import { createTextInput } from './components/inputs/text-input';
+import { DateInput } from './components/inputs/date-input';
+import { TextInput } from './components/inputs/text-input';
 
 export interface AppContext {
   window: Window;
@@ -21,30 +21,22 @@ let startApp = (appContext: AppContext) => {
   } = appContext;
   let appContainer = window.document.getElementById('appContainer');
 
-  let dateField = createDateInput({
+  let dateField = new DateInput({
     id: 'roster-date',
-    label: 'Datum', 
-    save: (value: string) => {
-      let data: any = {};
-      data[value] = true;
-      return services.databaseService.set('/dates', data);
-    }
+    label: 'Datum',
+    databaseService: services.databaseService
   });
 
-  let titleField = createTextInput({ 
+  let titleField = new TextInput({
     id: 'roster-title',
-    label: 'Rooster titel', 
-    save: (value: string) => {
-      let data: any = {};
-      data[value] = true;
-      return services.databaseService.set('/rosters', data);
-    }
+    label: 'Rooster titel',
+    databaseService: services.databaseService
   });
 
   if (appContainer) {
     projector.append(appContainer, () => h('div.app', [
       services.authenticationService.render(),
-      !!services.authenticationService.getCurrentUser() ? h('div', [titleField, dateField]) : []
+      !!services.authenticationService.getCurrentUser() ? h('div', [titleField.render(), dateField.render()]) : []
     ]));
   }
 };

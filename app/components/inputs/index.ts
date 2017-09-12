@@ -1,5 +1,7 @@
+import { DatabaseService } from '../../services/databaseService';
+
 export interface InputConfig {
   id: string;
   label: string;
-  save(value: string): Promise<boolean>;
+  databaseService: DatabaseService;
 }

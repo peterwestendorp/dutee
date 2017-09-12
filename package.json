@@ -26,7 +26,7 @@
     "webpack-dev-server": "2.4.2"
   },
   "scripts": {
-    "test": "mocha",
+    "test": "mocha test/**/*.ts --require ts-node/register",
     "dev": "webpack-dev-server"
   },
   "repository": {

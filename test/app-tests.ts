@@ -1,11 +1,7 @@
-import * as chai from 'chai';
 import * as Projector from 'maquette';
 import { startApp } from '../app/app';
 import * as sinon from 'sinon';
-import * as sinonChai from 'sinon-chai';
-
-let expect = chai.expect;
-chai.use(sinonChai);
+import { expect } from './index';
 
 let projector: {
   append: any;
