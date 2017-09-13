@@ -29,7 +29,10 @@ export class DateInput {
   }
 
   render(): VNode {
-    return h('label', { key: this.id }, [
+    return h('label', {
+      bind: this,
+      key: this.id
+    }, [
       this.label,
       h('input', {
         type: 'date',
