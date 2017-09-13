@@ -2,21 +2,19 @@ import { DateInput } from '../../../app/components/inputs/date-input';
 import * as sinon from 'sinon';
 import { createTestProjector } from 'maquette-query';
 import { expect } from '../../index';
+import { SinonStub } from 'sinon';
 
 describe('DateInput', () => {
-  let databaseService: any;
-  let databasePath = '/dates';
+  let save: SinonStub;
   let projector = createTestProjector();
   let input = projector.query('input');
 
   beforeEach(() => {
-    databaseService = {
-      set: sinon.stub()
-    }
+    save = sinon.stub();
   });
 
   it('will render a date input', () => {
-    let dateInput = new DateInput({id: 'foo', label: 'bar', databaseService});
+    let dateInput = new DateInput({id: 'foo', label: 'bar', save});
 
     projector.initialize(dateInput.render.bind(dateInput));
 
@@ -26,15 +24,13 @@ describe('DateInput', () => {
 
   it('will save the value on input', () => {
     let inputValue = 'abc';
-    let expectedValue = {} as any;
-    expectedValue[inputValue] = true;
     let inputElementMock = { value: inputValue };
-    let dateInput = new DateInput({id: 'foo', label: 'bar', databaseService});
+    let dateInput = new DateInput({id: 'foo', label: 'bar', save});
 
     projector.initialize(dateInput.render.bind(dateInput));
     input.properties.afterCreate!.bind(dateInput)(inputElementMock as any, {}, '', {}, []);
     input.properties.oninput!.bind(dateInput)({} as any);
 
-    expect(databaseService.set).to.have.been.calledWith(databasePath, expectedValue);
+    expect(save).to.have.been.calledWith(inputValue);
   });
 });

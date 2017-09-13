@@ -1,7 +1,5 @@
-import { DatabaseService } from '../../services/databaseService';
-
 export interface InputConfig {
   id: string;
   label: string;
-  databaseService: DatabaseService;
+  save(value: string): firebase.Promise<any>;
 }

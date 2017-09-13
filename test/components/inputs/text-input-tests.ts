@@ -2,21 +2,19 @@ import { createTestProjector } from 'maquette-query';
 import { expect } from '../../index';
 import * as sinon from 'sinon';
 import { TextInput } from '../../../app/components/inputs/text-input';
+import { SinonStub } from 'sinon';
 
 describe('TextInput', () => {
-  let databaseService: any;
-  let databasePath = '/rosters';
+  let save: SinonStub;
   let projector = createTestProjector();
   let input = projector.query('input');
 
   beforeEach(() => {
-    databaseService = {
-      set: sinon.stub()
-    }
+    save = sinon.stub();
   });
 
   it('will render a text input', () => {
-    let textInput = new TextInput({id: 'foo', label: 'bar', databaseService});
+    let textInput = new TextInput({id: 'foo', label: 'bar', save});
 
     projector.initialize(textInput.render.bind(textInput));
 
@@ -26,15 +24,13 @@ describe('TextInput', () => {
 
   it('will save the value on input', () => {
     let inputValue = 'abc';
-    let expectedValue = {} as any;
-    expectedValue[inputValue] = true;
     let inputElementMock = { value: inputValue };
-    let textInput = new TextInput({id: 'foo', label: 'bar', databaseService});
+    let textInput = new TextInput({id: 'foo', label: 'bar', save});
 
     projector.initialize(textInput.render.bind(textInput));
     input.properties.afterCreate!.bind(textInput)(inputElementMock as any, {}, '', {}, []);
     input.properties.oninput!.bind(textInput)({} as any);
 
-    expect(databaseService.set).to.have.been.calledWith(databasePath, expectedValue);
+    expect(save).to.have.been.calledWith(inputValue);
   });
 });

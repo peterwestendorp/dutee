@@ -24,13 +24,21 @@ let startApp = (appContext: AppContext) => {
   let dateField = new DateInput({
     id: 'roster-date',
     label: 'Datum',
-    databaseService: services.databaseService
+    save: (value: string) => {
+      let data: any = {};
+      data[value] = true;
+      return this.databaseService.set('/rosters', data);
+    }
   });
 
   let titleField = new TextInput({
     id: 'roster-title',
     label: 'Rooster titel',
-    databaseService: services.databaseService
+    save: (value: string) => {
+      let data: any = {};
+      data[value] = true;
+      return this.databaseService.set('/rosters', data);
+    }
   });
 
   if (appContainer) {

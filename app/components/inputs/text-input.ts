@@ -1,17 +1,16 @@
 import { h, VNode } from 'maquette';
 import { InputConfig } from './index';
-import { DatabaseService } from '../../services/databaseService';
 
 export class TextInput {
   private inputElement: HTMLInputElement;
   private id: string;
   private label: string;
-  private databaseService: DatabaseService;
+  private save: (value: string) => firebase.Promise<any>;
 
   constructor(config: InputConfig) {
     this.id = config.id;
     this.label = config.label;
-    this.databaseService = config.databaseService;
+    this.save = config.save;
   }
 
   handleAfterCreate(element: HTMLInputElement): void {
@@ -20,12 +19,6 @@ export class TextInput {
 
   handleInput(evt: Event): void {
     this.save(this.inputElement!.value);
-  }
-
-  save(value: string) {
-    let data: any = {};
-    data[value] = true;
-    return this.databaseService.set('/rosters', data);
   }
 
   render(): VNode {
