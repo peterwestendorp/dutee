@@ -18,6 +18,7 @@
     "chai": "4.1.2",
     "maquette-query": "0.11.7",
     "mocha": "3.5.0",
+    "nyc": "11.2.1",
     "sinon": "3.2.1",
     "sinon-chai": "2.13.0",
     "ts-node": "3.3.0",
@@ -27,6 +28,7 @@
   },
   "scripts": {
     "test": "mocha test/**/*.ts --require ts-node/register",
+    "coverage": "nyc mocha test/**/*.ts --require ts-node/register",
     "dev": "webpack-dev-server"
   },
   "repository": {
@@ -38,5 +40,21 @@
   "bugs": {
     "url": "https://github.com/peterwestendorp/dutee/issues"
   },
-  "homepage": "https://github.com/peterwestendorp/dutee#readme"
+  "homepage": "https://github.com/peterwestendorp/dutee#readme",
+  "nyc": {
+    "extension": [
+      ".ts",
+      ".tsx"
+    ],
+    "include": [
+      "app/**/*.ts"
+    ],
+    "exclude": [
+      "**/*.d.ts"
+    ],
+    "reporter": [
+      "html",
+      "text"
+    ]
+  }
 }
