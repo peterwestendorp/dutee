@@ -1,5 +1,6 @@
 import { h, VNode } from 'maquette';
 import { InputConfig } from './index';
+import { errorHandler } from '../../utilities/error-handler';
 
 export class TextInput {
   private inputElement: HTMLInputElement;
@@ -18,7 +19,7 @@ export class TextInput {
   }
 
   handleInput(evt: Event): void {
-    this.save(this.inputElement!.value);
+    this.save(this.inputElement!.value).catch(errorHandler);
   }
 
   render(): VNode {

@@ -1,6 +1,7 @@
 import { h, VNode } from 'maquette';
 import { InputConfig } from './index';
 import { DatabaseService } from '../../services/databaseService';
+import { errorHandler } from '../../utilities/error-handler';
 
 export class DateInput {
   private inputElement: HTMLInputElement;
@@ -19,7 +20,7 @@ export class DateInput {
   }
 
   handleInput(evt: Event): void {
-    this.save(this.inputElement!.value);
+    this.save(this.inputElement!.value).catch(errorHandler);
   }
 
   render(): VNode {

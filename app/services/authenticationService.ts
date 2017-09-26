@@ -1,3 +1,4 @@
+/* tslint:disable no-console */
 import * as firebase from 'firebase';
 import { h, VNode, Projector } from 'maquette';
 

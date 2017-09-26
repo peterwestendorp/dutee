@@ -10,7 +10,7 @@ export interface AppContext {
   services: {
     authenticationService: AuthenticationService;
     databaseService: DatabaseService;
-  }
+  };
 }
 
 let startApp = (appContext: AppContext) => {
@@ -27,7 +27,7 @@ let startApp = (appContext: AppContext) => {
     save: (value: string) => {
       let data: any = {};
       data[value] = true;
-      return this.databaseService.set('/rosters', data);
+      return services.databaseService.set('/rosters', data);
     }
   });
 
@@ -37,11 +37,11 @@ let startApp = (appContext: AppContext) => {
     save: (value: string) => {
       let data: any = {};
       data[value] = true;
-      return this.databaseService.set('/rosters', data);
+      return services.databaseService.set('/rosters', data);
     }
   });
 
-  if (appContainer) {
+  if (appContainer !== null) {
     projector.append(appContainer, () => h('div.app', [
       services.authenticationService.render(),
       !!services.authenticationService.getCurrentUser() ? h('div', [titleField.render(), dateField.render()]) : []

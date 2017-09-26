@@ -1,9 +1,10 @@
+/* tslint:disable no-console */
 import * as firebase from 'firebase';
 
 export interface DatabaseService {
   get(): void;
   set(ref: string, data: Object): firebase.Promise<any>;
-};
+}
 
 let createDatabaseService = (): DatabaseService => {
   let firebaseDB = firebase.database();
