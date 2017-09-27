@@ -42,9 +42,12 @@ let startApp = (appContext: AppContext) => {
   });
 
   if (appContainer !== null) {
-    projector.append(appContainer, () => h('div.app', [
+    projector.append(appContainer, () => h('div.App', [
       services.authenticationService.render(),
-      !!services.authenticationService.getCurrentUser() ? h('div', [titleField.render(), dateField.render()]) : []
+      !!services.authenticationService.getCurrentUser() ? h('div.App-content', [
+        titleField.render(),
+        dateField.render()
+      ]) : []
     ]));
   }
 };
