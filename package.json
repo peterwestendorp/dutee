@@ -31,7 +31,9 @@
     "test": "mocha test/**/*.ts --require ts-node/register",
     "coverage": "nyc mocha test/**/*.ts --require ts-node/register",
     "dev": "webpack-dev-server",
-    "lint": "tslint --type-check --project ./tsconfig.json ./app/**/*.ts"
+    "lint": "tslint --type-check --project ./tsconfig.json ./app/**/*.ts",
+    "precommit": "npm run lint && npm run test",
+    "prepush": "npm run lint && npm run coverage"
   },
   "repository": {
     "type": "git",

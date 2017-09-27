@@ -10,7 +10,7 @@ describe('TextInput', () => {
   let input = projector.query('input');
 
   beforeEach(() => {
-    save = sinon.stub();
+    save = sinon.stub().returns(Promise.resolve(true));
   });
 
   it('will render a text input', () => {
