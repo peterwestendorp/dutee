@@ -1,18 +1,20 @@
 import { h, VNode } from 'maquette';
 import { InputConfig } from './index';
-import { DatabaseService } from '../../services/databaseService';
 import { errorHandler } from '../../utilities/error-handler';
+import { Services } from '../../app';
 
 export class DateInput {
   private inputElement: HTMLInputElement;
   private id: string;
   private label: string;
-  private save: (value: string) => firebase.Promise<any>;
+  private services: Services;
+  private databasePath: string;
 
   constructor(config: InputConfig) {
     this.id = config.id;
     this.label = config.label;
-    this.save = config.save;
+    this.services = config.services;
+    this.databasePath = config.databasePath;
   }
 
   handleAfterCreate(element: HTMLInputElement): void {
@@ -20,7 +22,7 @@ export class DateInput {
   }
 
   handleInput(evt: Event): void {
-    this.save(this.inputElement!.value).catch(errorHandler);
+    this.services.databaseService.set(this.databasePath, this.inputElement!.value).catch(errorHandler);
   }
 
   render(): VNode {

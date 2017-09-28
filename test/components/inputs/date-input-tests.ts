@@ -14,7 +14,7 @@ describe('DateInput', () => {
   });
 
   it('will render a date input', () => {
-    let dateInput = new DateInput({id: 'foo', label: 'bar', save});
+    let dateInput = new DateInput({id: 'foo', label: 'bar', services: {} as any, databasePath: '/rosters'});
 
     projector.initialize(dateInput.render.bind(dateInput));
 
@@ -25,12 +25,14 @@ describe('DateInput', () => {
   it('will save the value on input', () => {
     let inputValue = 'abc';
     let inputElementMock = { value: inputValue };
-    let dateInput = new DateInput({id: 'foo', label: 'bar', save});
+    let databaseServiceSetStub = sinon.stub().returns(Promise.resolve(true));
+    let databasePath = '/rosters';
+    let dateInput = new DateInput({id: 'foo', label: 'bar', services: { databaseService: { set: databaseServiceSetStub } } as any, databasePath });
 
     projector.initialize(dateInput.render.bind(dateInput));
     input.properties.afterCreate!.bind(dateInput)(inputElementMock as any, {}, '', {}, []);
     input.properties.oninput!.bind(dateInput)({} as any);
 
-    expect(save).to.have.been.calledWith(inputValue);
+    expect(databaseServiceSetStub).to.have.been.calledWith(databasePath, inputValue);
   });
 });

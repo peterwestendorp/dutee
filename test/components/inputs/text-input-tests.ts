@@ -14,7 +14,7 @@ describe('TextInput', () => {
   });
 
   it('will render a text input', () => {
-    let textInput = new TextInput({id: 'foo', label: 'bar', save});
+    let textInput = new TextInput({id: 'foo', label: 'bar', services: {} as any, databasePath: '' });
 
     projector.initialize(textInput.render.bind(textInput));
 
@@ -25,12 +25,14 @@ describe('TextInput', () => {
   it('will save the value on input', () => {
     let inputValue = 'abc';
     let inputElementMock = { value: inputValue };
-    let textInput = new TextInput({id: 'foo', label: 'bar', save});
+    let databaseServiceSetStub = sinon.stub().returns(Promise.resolve(true));
+    let databasePath = '/rosters';
+    let textInput = new TextInput({id: 'foo', label: 'bar', services: { databaseService: { set: databaseServiceSetStub } } as any, databasePath });
 
     projector.initialize(textInput.render.bind(textInput));
     input.properties.afterCreate!.bind(textInput)(inputElementMock as any, {}, '', {}, []);
     input.properties.oninput!.bind(textInput)({} as any);
 
-    expect(save).to.have.been.calledWith(inputValue);
+    expect(databaseServiceSetStub).to.have.been.calledWith(databasePath, inputValue);
   });
 });

@@ -4,13 +4,15 @@ import { DatabaseService } from './services/databaseService';
 import { DateInput } from './components/inputs/date-input';
 import { TextInput } from './components/inputs/text-input';
 
+export interface Services {
+  authenticationService: AuthenticationService;
+  databaseService: DatabaseService;
+}
+
 export interface AppContext {
   window: Window;
   projector: Projector;
-  services: {
-    authenticationService: AuthenticationService;
-    databaseService: DatabaseService;
-  };
+  services: Services;
 }
 
 let startApp = (appContext: AppContext) => {
@@ -24,21 +26,15 @@ let startApp = (appContext: AppContext) => {
   let dateField = new DateInput({
     id: 'roster-date',
     label: 'Datum',
-    save: (value: string) => {
-      let data: any = {};
-      data[value] = true;
-      return services.databaseService.set('/rosters', data);
-    }
+    services,
+    databasePath: '/rosters'
   });
 
   let titleField = new TextInput({
     id: 'roster-title',
     label: 'Rooster titel',
-    save: (value: string) => {
-      let data: any = {};
-      data[value] = true;
-      return services.databaseService.set('/rosters', data);
-    }
+    services,
+    databasePath: '/rosters'
   });
 
   if (appContainer !== null) {
