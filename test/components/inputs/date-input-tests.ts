@@ -1,4 +1,4 @@
-import { DateInput } from '../../../app/components/inputs/date-input';
+import { DateInput } from '../../../src/components/inputs/date-input';
 import * as sinon from 'sinon';
 import { createTestProjector } from 'maquette-query';
 import { expect } from '../../index';

@@ -1,4 +1,4 @@
-import { errorHandler } from '../../app/utilities/error-handler';
+import { errorHandler } from '../../src/utilities/error-handler';
 import { expect } from '../index';
 
 describe('Error handler', () => {

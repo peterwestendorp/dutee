@@ -1,7 +1,7 @@
 import { createTestProjector } from 'maquette-query';
 import { expect } from '../../index';
 import * as sinon from 'sinon';
-import { TextInput } from '../../../app/components/inputs/text-input';
+import { TextInput } from '../../../src/components/inputs/text-input';
 import { SinonStub } from 'sinon';
 
 describe('TextInput', () => {

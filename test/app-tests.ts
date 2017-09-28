@@ -1,5 +1,5 @@
 import * as Projector from 'maquette';
-import { startApp } from '../app/app';
+import { startApp } from '../src/app';
 import * as sinon from 'sinon';
 import { expect } from './index';
 import { createTestProjector } from 'maquette-query';
