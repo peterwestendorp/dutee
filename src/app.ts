@@ -1,8 +1,8 @@
 import { h, Projector } from 'maquette';
 import { AuthenticationService } from './services/authenticationService';
 import { DatabaseService } from './services/databaseService';
-import { DateInput } from './components/inputs/date-input';
-import { TextInput } from './components/inputs/text-input';
+import { DateInput } from './components/input/date-input-component';
+import { TextInput } from './components/input/text-input-component';
 
 export interface Services {
   authenticationService: AuthenticationService;
