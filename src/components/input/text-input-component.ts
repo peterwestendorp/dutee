@@ -1,16 +1,17 @@
 import { h, VNode } from 'maquette';
-import { InputConfig } from './index';
+import { IInputConfig } from './index';
 import { errorHandler } from '../../utilities/error-handler';
 import { Services } from '../../app';
+import { IComponent } from '../index';
 
-export class TextInput {
+export class TextInput implements IComponent {
   private inputElement: HTMLInputElement;
   private id: string;
   private label: string;
   private services: Services;
   private databasePath: string;
 
-  constructor(config: InputConfig) {
+  constructor(config: IInputConfig) {
     this.id = config.id;
     this.label = config.label;
     this.services = config.services;
@@ -29,6 +30,7 @@ export class TextInput {
     return h('label', { key: this.id }, [
       this.label,
       h('input', {
+        bind: this,
         type: 'text',
         afterCreate: this.handleAfterCreate,
         oninput: this.handleInput

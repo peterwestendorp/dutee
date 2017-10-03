@@ -1,6 +1,6 @@
 import { Services } from '../../app';
 
-export interface InputConfig {
+export interface IInputConfig {
   id: string;
   label: string;
   services: Services;

@@ -99,7 +99,7 @@ describe('App', () => {
       testProjector.initialize(renderFunction);
 
       expect(appContentElement.exists()).to.be.true;
-      expect(inputElements.length).to.equal(2);
+      expect(inputElements.length).to.equal(1);
     });
   });
 });

@@ -1,8 +1,7 @@
 import { h, Projector } from 'maquette';
 import { AuthenticationService } from './services/authenticationService';
 import { DatabaseService } from './services/databaseService';
-import { DateInput } from './components/input/date-input-component';
-import { TextInput } from './components/input/text-input-component';
+import { RosterPage } from './pages/roster-page';
 
 export interface Services {
   authenticationService: AuthenticationService;
@@ -23,26 +22,13 @@ let startApp = (appContext: AppContext) => {
   } = appContext;
   let appContainer = window.document.getElementById('appContainer');
 
-  let dateField = new DateInput({
-    id: 'roster-date',
-    label: 'Datum',
-    services,
-    databasePath: '/rosters'
-  });
-
-  let titleField = new TextInput({
-    id: 'roster-title',
-    label: 'Rooster titel',
-    services,
-    databasePath: '/rosters'
-  });
+  let rosterPage = new RosterPage(services);
 
   if (appContainer !== null) {
     projector.append(appContainer, () => h('div.App', [
       services.authenticationService.render(),
       !!services.authenticationService.getCurrentUser() ? h('div.App-content', [
-        titleField.render(),
-        dateField.render()
+        rosterPage.render()
       ]) : []
     ]));
   }

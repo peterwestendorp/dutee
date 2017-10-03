@@ -1,16 +1,17 @@
 import { h, VNode } from 'maquette';
-import { InputConfig } from './index';
+import { IInputConfig } from './index';
 import { errorHandler } from '../../utilities/error-handler';
 import { Services } from '../../app';
+import { IComponent } from '../index';
 
-export class DateInput {
+export class DateInput implements IComponent {
   private inputElement: HTMLInputElement;
   private id: string;
   private label: string;
   private services: Services;
   private databasePath: string;
 
-  constructor(config: InputConfig) {
+  constructor(config: IInputConfig) {
     this.id = config.id;
     this.label = config.label;
     this.services = config.services;
@@ -32,6 +33,7 @@ export class DateInput {
     }, [
       this.label,
       h('input', {
+        bind: this,
         type: 'date',
         afterCreate: this.handleAfterCreate,
         oninput: this.handleInput
