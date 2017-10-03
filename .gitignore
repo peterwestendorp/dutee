@@ -4,4 +4,4 @@
 node_modules/
 build/
 coverage/
-app/**/*.js
+src/**/*.js
