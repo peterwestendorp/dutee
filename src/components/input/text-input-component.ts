@@ -1,21 +1,20 @@
-import { h, VNode } from 'maquette';
+import { h } from 'maquette';
 import { IInputConfig } from './index';
 import { errorHandler } from '../../utilities/error-handler';
 import { Services } from '../../app';
-import { IComponent } from '../index';
+import { Component } from '../index';
 
-export class TextInput implements IComponent {
+export class TextInput extends Component {
   private inputElement: HTMLInputElement;
   private id: string;
   private label: string;
   private services: Services;
-  private databasePath: string;
 
   constructor(config: IInputConfig) {
+    super(config);
     this.id = config.id;
     this.label = config.label;
     this.services = config.services;
-    this.databasePath = config.databasePath;
   }
 
   handleAfterCreate(element: HTMLInputElement): void {
@@ -26,7 +25,7 @@ export class TextInput implements IComponent {
     this.services.databaseService.set(this.databasePath, this.inputElement!.value).catch(errorHandler);
   }
 
-  render(): VNode {
+  render() {
     return h('label', { key: this.id }, [
       this.label,
       h('input', {
