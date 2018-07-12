@@ -3,7 +3,7 @@ import * as firebase from 'firebase';
 
 export interface DatabaseService {
   get(): void;
-  set(ref: string, data: Object): firebase.Promise<any>;
+  set(ref: string, data: Object): Promise<any>;
 }
 
 let createDatabaseService = (): DatabaseService => {
@@ -11,7 +11,7 @@ let createDatabaseService = (): DatabaseService => {
 
   let get = () => {};
 
-  let set = (ref: string, value: string): firebase.Promise<any> => {
+  let set = (ref: string, value: string): Promise<any> => {
     let data: any = {};
     data[value] = true;
 

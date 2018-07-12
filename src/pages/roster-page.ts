@@ -23,8 +23,8 @@ export class RosterPage implements IPage {
     });
 
     this.dateInput = new DateInput({
-      id: 'rosterNameField',
-      label: 'Roster name',
+      id: 'rosterDateField',
+      label: 'Roster date',
       services,
       databasePath: '/rosters'
     });
