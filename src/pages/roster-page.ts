@@ -36,7 +36,7 @@ export class RosterPage implements IPage {
 
     this.submitButton = new Button({
       name: 'submit',
-      action: () => {
+      onclick: () => {
         let currentUser = services.authenticationService.getCurrentUser();
         this.services.databaseService.set(`/rosters/${currentUser.uid}`, model).catch(errorHandler);
       }

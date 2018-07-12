@@ -2,22 +2,22 @@ import { h } from 'maquette';
 
 interface IButtonConfig {
   name: string;
-  action(): void;
+  onclick(): void;
 }
 
 export class Button {
   private name: string;
-  private action: () => void;
+  private onclick: () => void;
 
   constructor(config: IButtonConfig) {
     this.name = config.name;
-    this.action = config.action;
+    this.onclick = config.onclick;
   }
 
   render() {
     return h('button', {
       bind: this,
-      onclick: this.action
+      onclick: this.onclick
     }, [this.name])
   }
 }
