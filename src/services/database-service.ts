@@ -11,10 +11,7 @@ let createDatabaseService = (): DatabaseService => {
 
   let get = () => {};
 
-  let set = (ref: string, value: string): Promise<any> => {
-    let data: any = {};
-    data[value] = true;
-
+  let set = (ref: string, data: object): Promise<any> => {
     console.log('setting', ref, data);
     return firebase.database().ref(`${ref}`).set(data);
   };

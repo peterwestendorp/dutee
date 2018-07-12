@@ -22,7 +22,7 @@ let startApp = (appContext: AppContext) => {
   } = appContext;
   let appContainer = window.document.getElementById('appContainer');
 
-  let rosterPage = new RosterPage(services);
+  let rosterPage = new RosterPage(services, {});
 
   if (appContainer !== null) {
     projector.append(appContainer, () => h('div.App', [

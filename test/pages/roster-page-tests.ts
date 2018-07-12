@@ -9,7 +9,7 @@ describe('Roster page', () => {
 
   it('does render a title input field', () => {
     let databaseServiceSetStub = sinon.stub();
-    let page = new RosterPage({ databaseService: { set: databaseServiceSetStub }, authenticationService: {} } as any);
+    let page = new RosterPage({ databaseService: { set: databaseServiceSetStub }, authenticationService: {} } as any, {});
 
     testProjector.initialize(page.render.bind(page));
 

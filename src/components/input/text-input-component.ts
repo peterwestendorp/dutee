@@ -1,20 +1,16 @@
 import { h } from 'maquette';
 import { IInputConfig } from './index';
-import { errorHandler } from '../../utilities/error-handler';
-import { Services } from '../../app';
-import { Component } from '../index';
+import { ValueComponent } from '../index';
 
-export class TextInput extends Component {
+export class TextInput extends ValueComponent<string> {
   private inputElement: HTMLInputElement;
   private id: string;
   private label: string;
-  private services: Services;
 
-  constructor(config: IInputConfig) {
+  constructor(config: IInputConfig<string>) {
     super(config);
     this.id = config.id;
     this.label = config.label;
-    this.services = config.services;
   }
 
   handleAfterCreate(element: HTMLInputElement): void {
@@ -22,7 +18,7 @@ export class TextInput extends Component {
   }
 
   handleInput(evt: Event): void {
-    this.services.databaseService.set(this.databasePath, this.inputElement!.value).catch(errorHandler);
+    this.update(this.inputElement.value);
   }
 
   render() {

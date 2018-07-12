@@ -14,7 +14,7 @@ describe('DateInput', () => {
   });
 
   it('will render a date input', () => {
-    let dateInput = new DateInput({id: 'foo', label: 'bar', services: {} as any, databasePath: '/rosters'});
+    let dateInput = new DateInput({id: 'foo', label: 'bar', services: {} as any, update: sinon.stub() });
 
     projector.initialize(dateInput.render.bind(dateInput));
 
@@ -22,17 +22,16 @@ describe('DateInput', () => {
     expect(projector.root.children[0].text).to.equal('bar');
   });
 
-  it('will save the value on input', () => {
+  it('will call the update method with the new value on input', () => {
     let inputValue = 'abc';
     let inputElementMock = { value: inputValue };
-    let databaseServiceSetStub = sinon.stub().returns(Promise.resolve(true));
-    let databasePath = '/rosters';
-    let dateInput = new DateInput({id: 'foo', label: 'bar', services: { databaseService: { set: databaseServiceSetStub } } as any, databasePath });
+    let updateStub = sinon.stub();
+    let dateInput = new DateInput({id: 'foo', label: 'bar', services: { databaseService: { set: sinon.stub() } } as any, update: updateStub });
 
     projector.initialize(dateInput.render.bind(dateInput));
     input.properties.afterCreate!.bind(dateInput)(inputElementMock as any, {}, '', {}, []);
     input.properties.oninput!.bind(dateInput)({} as any);
 
-    expect(databaseServiceSetStub).to.have.been.calledWith(databasePath, inputValue);
+    expect(updateStub).to.have.been.calledWith(inputValue);
   });
 });

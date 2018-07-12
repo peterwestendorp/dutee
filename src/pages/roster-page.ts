@@ -5,6 +5,7 @@ import { IComponent } from '../components/index';
 import { IPage } from './index';
 import { Button } from '../components/button/button';
 import { DateInput } from '../components/input/date-input-component';
+import { errorHandler } from '../utilities/error-handler';
 
 export class RosterPage implements IPage {
   private nameInput: IComponent;
@@ -12,26 +13,33 @@ export class RosterPage implements IPage {
   private submitButton: IComponent;
   private services: Services;
 
-  constructor(services: Services) {
+  constructor(services: Services, model: any) {
     this.services = services;
 
     this.nameInput = new TextInput({
       id: 'rosterNameField',
       label: 'Roster name',
       services,
-      databasePath: '/rosters'
+      update: (newValue: string) => {
+        model.name = newValue;
+      }
     });
 
     this.dateInput = new DateInput({
       id: 'rosterDateField',
       label: 'Roster date',
       services,
-      databasePath: '/rosters'
+      update: (newValue: string) => {
+        model.date = newValue;
+      }
     });
 
     this.submitButton = new Button({
       name: 'submit',
-      databasePath: '/rosters'
+      action: () => {
+        let currentUser = services.authenticationService.getCurrentUser();
+        this.services.databaseService.set(`/rosters/${currentUser.uid}`, model).catch(errorHandler);
+      }
     });
   }
 

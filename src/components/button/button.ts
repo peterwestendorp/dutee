@@ -1,21 +1,23 @@
-import { Component, IComponentConfig } from '../index';
 import { h } from 'maquette';
 
-interface IButtonConfig extends IComponentConfig {
+interface IButtonConfig {
   name: string;
+  action(): void;
 }
 
-export class Button extends Component {
+export class Button {
   private name: string;
+  private action: () => void;
 
   constructor(config: IButtonConfig) {
-    super(config);
     this.name = config.name;
+    this.action = config.action;
   }
 
   render() {
     return h('button', {
-      bind: this
+      bind: this,
+      onclick: this.action
     }, [this.name])
   }
 }

@@ -1,8 +1,8 @@
 import { Services } from '../../app';
 
-export interface IInputConfig {
+export interface IInputConfig<T> {
   id: string;
   label: string;
   services: Services;
-  databasePath: string;
+  update(newValue: T): void;
 }

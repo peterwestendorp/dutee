@@ -4,15 +4,15 @@ export interface IComponent {
   render(): VNode | undefined;
 }
 
-export interface IComponentConfig {
-  databasePath: string;
+export interface IValueComponentConfig<T> {
+  update(newValue: T): void;
 }
 
-export class Component implements IComponent {
-  protected databasePath: string;
+export class ValueComponent<T> implements IComponent {
+  protected update: (newValue: T) => void;
 
-  constructor(config: IComponentConfig) {
-    this.databasePath = config.databasePath;
+  constructor(config: IValueComponentConfig<T>) {
+    this.update = config.update;
   }
 
   render(): VNode | undefined {
