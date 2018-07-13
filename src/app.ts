@@ -1,11 +1,12 @@
 import { h, Projector } from 'maquette';
-import { AuthenticationService } from './services/authenticationService';
 import { DatabaseService } from './services/databaseService';
-import { RosterPage } from './pages/roster-page';
+import { IAuthenticationService } from './services/authentication-service';
+import { IDatabaseService } from './services/database-service';
+import { TodoIndexPage } from './pages/todo-index-page';
 
 export interface Services {
-  authenticationService: AuthenticationService;
-  databaseService: DatabaseService;
+  authenticationService: IAuthenticationService;
+  databaseService: IDatabaseService;
 }
 
 export interface AppContext {
@@ -22,13 +23,13 @@ let startApp = (appContext: AppContext) => {
   } = appContext;
   let appContainer = window.document.getElementById('appContainer');
 
-  let rosterPage = new RosterPage(services, {});
+  let todoIndexPage = new TodoIndexPage(services);
 
   if (appContainer !== null) {
     projector.append(appContainer, () => h('div.App', [
       services.authenticationService.render(),
       !!services.authenticationService.getCurrentUser() ? h('div.App-content', [
-        rosterPage.render()
+        todoIndexPage.render()
       ]) : []
     ]));
   }

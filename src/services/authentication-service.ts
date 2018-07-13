@@ -2,12 +2,12 @@
 import * as firebase from 'firebase';
 import { h, VNode, Projector } from 'maquette';
 
-export interface AuthenticationService {
+export interface IAuthenticationService {
   render(): VNode;
   getCurrentUser(): any;
 }
 
-let createAuthenticationService = (projector: Projector): AuthenticationService => {
+let createAuthenticationService = (projector: Projector): IAuthenticationService => {
   let loggedInUser: any = undefined;
   let facebookProvider = new firebase.auth.FacebookAuthProvider();
 

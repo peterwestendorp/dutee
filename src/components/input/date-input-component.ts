@@ -1,6 +1,6 @@
 import { h } from 'maquette';
 import { IInputConfig } from './index';
-import { ValueComponent } from '../index';
+import { ValueComponent } from '../value-component';
 
 export class DateInput extends ValueComponent<string> {
   private inputElement: HTMLInputElement;

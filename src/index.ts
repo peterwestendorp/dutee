@@ -1,8 +1,8 @@
 import * as firebase from 'firebase';
 import { startApp } from './app';
 import { createProjector} from 'maquette';
-import { createAuthenticationService } from './services/authenticationService';
-import { createDatabaseService } from './services/databaseService';
+import { createAuthenticationService } from './services/authentication-service';
+import { createDatabaseService } from './services/database-service';
 
 firebase.initializeApp({
   apiKey: 'AIzaSyDWUuggqMPPlcsc6ez_4IZFRJxFMhckBYU',
